@@ -7,6 +7,8 @@
 require(sf)
 require(ggvoronoi)
 require(dplyr)
+require(dbscan)
+
 
 #### scd ####
 #' function to use the single cell debarcoder strategy at a certain cutoff
@@ -214,6 +216,51 @@ pcBorder <- function(pcdat, alpha_start = 80){
   
 }
 
+#### borderPolygon ####
+
+# function to draw alpha shape around points and return polygon vector
+# input is procode data with X, Y coordinates 
+# output is a polygon vector (sf object)
+
+borderPolygon <- function(pcdat, alpha_start){
+  # draw the alpha shape around this set of points
+  pc.shape <- ashape(cbind(pcdat[,"Centroid X px"], pcdat[,"Centroid Y px"]), 
+                     alpha = alpha_start)
+  # assemble the points into connected lines
+  pc.g <- graph.edgelist(cbind(as.character(pc.shape$edges[, "ind1"]), 
+                               as.character(pc.shape$edges[, "ind2"])), directed = FALSE)
+  
+  # run tests to make sure alpha value used forms the correct shape of graph
+  if (!is.connected(pc.g)) {
+    stop("Graph not connected")
+  }
+  if (any(degree(pc.g) != 2)) {
+    stop("Graph not circular")
+  }
+  if (clusters(pc.g)$no > 1) {
+    stop("Graph composed of more than one circle")
+  }
+  
+  # I will now just return the xy coords of the polygon for plotting in ggplot
+  cutg = pc.g - E(pc.g)[1]
+  # find chain end points
+  ends = names(which(degree(cutg) == 1))
+  path = unlist(get.shortest.paths(cutg, ends[1], ends[2])[[1]])
+  # this is an index into the points
+  pathX = as.numeric(V(pc.g)[path]$name)
+  # join the ends
+  pathX = c(pathX, pathX[1])
+
+  
+  # now for this I will return an sf polygon object because this will interface
+  # with other spatial testing procedures
+  # for plotting this can always be converted back to a matrix by using 
+  # the st_coordinates function
+  pc.poly <- st_polygon(list(pc.shape$x[pathX,]))
+  return(pc.poly)
+  
+}
+
 #### borderPoints ####
 # for a list of boundaries I need to get the overlapping points associated
 
@@ -286,7 +333,7 @@ compositionQuant <- function(pcdat, borders, region) {
                  # the centroid coordinates
                  marker_idx <- !(grepl("Centroid", colnames(pc.cells[[pc]])))
                  # get sums of positive cells for all markers
-                 #s <- apply(pc.cells[[pc]][,3:ncol(pc.cells[[pc]])], 2, function(x){
+
                  s <- apply(pc.cells[[pc]][,marker_idx], 2, function(x){
                    sum(x)
                  })
