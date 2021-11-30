@@ -1,0 +1,213 @@
+---
+title: "cytosig gene set generation"
+output: 
+  html_document:
+    df_output: paged
+    toc: TRUE
+    theme: 'simplex'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
+```
+
+# Overview
+
+Set of commands to generate cytosig genesets used in the Perturb-map manuscript (Dhainaut, Rose, et al 2022). 
+
+Names of files will need to be changed based local paths. 
+
+# load database files
+
+```{r}
+# load libraries, etc. 
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(data.table)
+
+
+# read in the database and metadata
+# these can be downloaded on the cytosig website (https://cytosig.ccr.cancer.gov/)
+db_file = '~/Dropbox/reference_genomes/Homo_sapiens/gene_sets/cytosig/diff.merge'
+info_file = '~/Dropbox/reference_genomes/Homo_sapiens/gene_sets/cytosig/diff.merge.info'
+
+
+db = fread(db_file)
+info = fread(info_file)
+
+#  convert to dataframe for tidyr manipulation
+db = db %>% as.data.frame()
+info = info %>% as.data.frame()
+
+# set gene names as rownames for db
+rownames(db) = db$V1
+db = db[,-1]
+
+# arrange db in same order as info
+db = db[,info$V1]
+
+
+```
+
+# commands to query database
+
+```{r}
+
+extract_cyto_sig_genes = function(db, info, cytokine, condition,  threshold = 1, frac_obs = .25){
+  #db.f = db[,info$Treatment == cytokine & grepl(condition, info$Condition), with = F ]
+  
+  # filter FC table for only samples matching cytokine and a string match to condition
+  db.f = db[,info$Treatment == cytokine & grepl(condition, info$Condition, ignore.case = T)]
+  
+  print(paste("Number of conditions for", cytokine, condition, ": ", ncol(db.f)))
+  
+  # convert to binary FC table, 1 or 0 based on FC above threshold
+  # only using positive fold-changes in the purpose
+  
+  if(sign(threshold) == 1){
+      db.b = db.f > threshold
+  }
+  if(sign(threshold) == -1){
+    db.b = db.f < threshold
+  }
+
+  # sum of the fc over threshold in direction that I want
+  gene_change = rowSums(db.b)
+  filt_genes = names(gene_change[(!(is.na(gene_change))) & gene_change > (ncol(db.b) * frac_obs)])
+  
+  # if there are no genes in the signature then return NULL
+  if(length(filt_genes) == 0){
+    print(paste("No genes for", cytokine, condition))
+    return(NULL)
+  }
+  
+  # put gene change fraction into data frame for merging later
+  gene_change.df = gene_change %>% as.matrix() %>%
+    reshape2::melt() %>% 
+    dplyr::select(gene = Var1, frac_over_threshold = value) %>%
+    mutate(frac_over_threshold = frac_over_threshold / ncol(db.b), 
+           gene = as.character(gene))
+  
+  # calculate average fold change of filtered genes
+  rdb = apply(db.f[filt_genes,], 1, mean, na.rm = T) %>%
+    as.matrix() %>% reshape2::melt() %>% 
+    dplyr::select(gene = Var1, avg_fc = value) %>%
+    mutate(gene = as.character(gene)) %>%
+    left_join(gene_change.df, by = 'gene')
+  
+  # arrange by average FC
+  rdb = dplyr::arrange(rdb, desc(avg_fc))
+  # return genes and avg FC
+  return(rdb)
+}
+
+
+# example command
+# extract_cyto_sig_genes(db, info, 'IFNG', 'Fibroblast',  threshold = .5, frac_obs = .25)
+
+## function to extract conditions to get a sense of how much is there
+extract_cyto_conditions = function(db, info, cytokine, condition){
+    info[info$Treatment == cytokine & grepl(condition, info$Condition, ignore.case = T),]
+}
+
+
+```
+
+
+# filtered cell type gene set definition
+
+Reading in a table curated to only include relevant cell type for this study. The cell types are grouped into broad categories and some are placed into more narrow categories specific to the lung. 
+
+```{r, results = 'hide', results='hide'}
+
+# read in the altered signatures and filter for ones that I want to include
+info_f = read_csv( "~/Dropbox/reference_genomes/Homo_sapiens/gene_sets/cytosig/diff.lungImmune.modGroup.csv")
+
+
+
+# set conditions
+conditions_broad = unique(info_f$broad_group)
+conditions_narrow = unique(info_f$narrow_group)
+conditions_narrow = conditions_narrow[!(is.na(conditions_narrow))]
+
+# need to filter the database in the same order as what I have for the filtered info file
+db_f = db[,info_f$V1]
+
+# the signatures need to be generated in different ways based on different columns to match
+## broad signatures
+cond_sigs.b = lapply(conditions_broad, function(cond){
+
+  info_cond_iter = info_f %>% dplyr::filter(broad_group == cond) %>%
+    dplyr::count(Treatment) %>%  arrange(desc(n)) %>% dplyr::filter(n >= 3)
+  
+  # for each treatment, get upregulated genes associated
+  cond_up = lapply(info_cond_iter$Treatment, function(treat){
+    extract_cyto_sig_genes(db_f, info_f %>% dplyr::select(-Condition) %>%
+                             dplyr::rename(Condition = broad_group), treat, cond, 
+                           threshold = .5, frac_obs = .5)
+  })
+  names(cond_up) <- info_cond_iter$Treatment
+  cond_up
+})
+names(cond_sigs.b) = conditions_broad
+
+## narrow signatures
+cond_sigs.n = lapply(conditions_narrow, function(cond){
+
+  info_cond_iter = info_f %>% dplyr::filter(narrow_group == cond) %>%
+    dplyr::count(Treatment) %>%  arrange(desc(n)) %>% dplyr::filter(n >= 3)
+  
+  
+  # for each treatment, get upregulated genes associated
+  cond_up = lapply(info_cond_iter$Treatment, function(treat){
+    extract_cyto_sig_genes(db_f, info_f %>% dplyr::select(-Condition) %>%
+                             dplyr::rename(Condition = narrow_group), treat, cond, 
+                           threshold = .5, frac_obs = .5)
+  })
+  names(cond_up) <- info_cond_iter$Treatment
+  cond_up
+})
+names(cond_sigs.n) = conditions_narrow
+
+## join these together
+cond_sigs.bn = c(cond_sigs.b, cond_sigs.n)
+
+# filter out null conditions and cell types with no signatures
+cond_sigs.bn = cond_sigs.bn[(lapply(cond_sigs.bn, length) %>% unlist()) != 0]
+cond_sigs.bn.f = lapply(cond_sigs.bn, function(x){
+  
+  purrr::discard(x, is.null)
+
+})
+
+
+```
+
+Human gene names in these signatures will be joined to mouse names and written to rds file. 
+
+```{r}
+## convert to orthologues and write out
+## load orthologue mappings
+ortho = readr::read_csv("~/Dropbox/reference_genomes/Mus_musculus/ortho/human_mouse_ortho_withType.csv")
+ortho_f = dplyr::filter(ortho, `Mouse homology type` == "ortholog_one2one" & (!(is.na(`Mouse gene name`) | is.na(`Gene name`)))) %>%
+  dplyr::select( `Mouse gene name`, `Gene name`) %>% 
+  distinct() %>%
+  mutate(mouse_name = toupper(`Mouse gene name`))
+
+# filter for just the lower case mouse gene names
+ortho_f = dplyr::select(ortho_f, `Mouse gene name`, `Gene name`) %>%
+  dplyr::rename(mouse_gene = `Mouse gene name`)
+
+cond_sigs.bn.f = lapply(cond_sigs.bn.f, function(ct){
+  lapply(ct, function(cyto){
+    dplyr::left_join(cyto, ortho_f, by = c('gene' =  'Gene name'))
+  })
+})
+
+# write out as rds
+
+saveRDS(cond_sigs.bn.f, file = "~/Dropbox/reference_genomes/Homo_sapiens/gene_sets/cytosig/cytosig_TreatCond_sigGenes_lungCurated_20211115.rds")
+
+
+```

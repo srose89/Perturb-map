@@ -1,0 +1,474 @@
+V1,Treatment,Condition,Duration,Dose,narrow_group,broad_group
+IL1B@Condition:Human_Epithelial_A549@GSE101868.RNASeq.SRP113550_GRCh38,IL1B,_Epithelial_A549,,,A549,Lung_tumor
+IFNA&Dose:1000IU/mL_Duration:24 h@Condition:A549@GSE60572.MicroArray.GPL10558,IFNA,A549,24h,1000IU/mL,A549,Lung_tumor
+IFNA&Dose:1000IU/mL_Duration:6 h@Condition:A549@GSE60572.MicroArray.GPL10558,IFNA,A549,6h,1000IU/mL,A549,Lung_tumor
+IFNA&Dose:100IU/mL_Duration:24 h@Condition:A549@GSE60572.MicroArray.GPL10558,IFNA,A549,24h,100IU/mL,A549,Lung_tumor
+IFNA&Dose:100IU/mL_Duration:6 h@Condition:A549@GSE60572.MicroArray.GPL10558,IFNA,A549,6h,100IU/mL,A549,Lung_tumor
+IFNA@Condition:A549&Duration:24h@GSE5542.MicroArray.GPL96,IFNA,A549,24h,,A549,Lung_tumor
+IFNA@Condition:A549&Duration:6h@GSE5542.MicroArray.GPL96,IFNA,A549,6h,,A549,Lung_tumor
+IFNB@Condition:A549&Duration:24h@GSE12664.MicroArray.GPL6480,IFNB,A549,24h,,A549,Lung_tumor
+IFNB@Condition:A549&Duration:6h@GSE12664.MicroArray.GPL6480,IFNB,A549,6h,,A549,Lung_tumor
+IFNB&Dose:500U/mL@Condition:A549@GSE35267.MicroArray.GPL10558,IFNB,A549,,500U/mL,A549,Lung_tumor
+IFNG@Condition:A549&Duration:24h@GSE5542.MicroArray.GPL96,IFNG,A549,24h,,A549,Lung_tumor
+IFNG@Condition:A549&Duration:6h@GSE5542.MicroArray.GPL96,IFNG,A549,6h,,A549,Lung_tumor
+IL1B@Condition:A549&Duration:6h@GSE120269.RNASeq.SRP162275_GRCh38,IL1B,A549,6h,,A549,Lung_tumor
+TGFB1@Condition:A549@GSE49644.MicroArray.HG-U133_Plus_2,TGFB1,A549,,,A549,Lung_tumor
+TGFB1&Dose:2.5 ng/ml_Duration:5d@Condition:A549@GSE100292.RNASeq.SRP110004_GRCh38,TGFB1,A549,5d,2.5 ng/mL,A549,Lung_tumor
+TGFB1@Condition:A549 cells@GSE119145.RNASeq.SRP159066_GRCh38,TGFB1,A549,,,A549,Lung_tumor
+TGFB1&Dose:10ng/ml_Duration:4h@Condition:A549@GSE5450.MicroArray.HG-U133A,TGFB1,A549,4h,10ng/mL,A549,Lung_tumor
+TGFB1@Condition:A549 cells@GSE135402.RNASeq.SRP217502_GRCh38,TGFB1,A549,,,A549,Lung_tumor
+TGFB1@Condition:A549@GSE5457.MicroArray.HG-U133A,TGFB1,A549,,,A549,Lung_tumor
+TGFB1&Duration:0.5h@Condition:A549@GSE17708.MicroArray.HG-U133_Plus_2,TGFB1,A549,0.5h,,A549,Lung_tumor
+TGFB1&Duration:16h@Condition:A549@GSE17708.MicroArray.HG-U133_Plus_2,TGFB1,A549,16h,,A549,Lung_tumor
+TGFB1&Duration:1h@Condition:A549@GSE17708.MicroArray.HG-U133_Plus_2,TGFB1,A549,1h,,A549,Lung_tumor
+TGFB1&Duration:24h@Condition:A549@GSE17708.MicroArray.HG-U133_Plus_2,TGFB1,A549,24h,,A549,Lung_tumor
+TGFB1&Duration:2h@Condition:A549@GSE17708.MicroArray.HG-U133_Plus_2,TGFB1,A549,2h,,A549,Lung_tumor
+TGFB1&Duration:4h@Condition:A549@GSE17708.MicroArray.HG-U133_Plus_2,TGFB1,A549,4h,,A549,Lung_tumor
+TGFB1&Duration:72h@Condition:A549@GSE17708.MicroArray.HG-U133_Plus_2,TGFB1,A549,72h,,A549,Lung_tumor
+TGFB1&Duration:8h@Condition:A549@GSE17708.MicroArray.HG-U133_Plus_2,TGFB1,A549,8h,,A549,Lung_tumor
+TNFA@Condition:A549@GSE32254.MicroArray.HuGene-1_0-st-v1,TNFA,A549,,,A549,Lung_tumor
+TNFA@Condition:A549&Duration:24h@GSE136439.MicroArray.HT_HG-U133_Plus_PM,TNFA,A549,24h,,A549,Lung_tumor
+TNFA@Condition:A549&Duration:4h@GSE136439.MicroArray.HT_HG-U133_Plus_PM,TNFA,A549,4h,,A549,Lung_tumor
+WNT3A&Duration:24h@Condition:A549@GSE67571.MicroArray.GPL10558,WNT3A,A549,24h,,A549,Lung_tumor
+TNFA@Condition:A549 nonsmall lung cancer cell line@GSE34329.RNASeq.SRP009790_GRCh38,TNFA,A549 Nonsmall Lung Cancer,,,A549,Lung_tumor
+TGFB1@Condition:Activated Macrophage@GSE134555.RNASeq.SRP215472_GRCh38,TGFB1,Activated Macrophage,,,,Mac_Mono
+IL13&Dose:20ng/mL@Condition:Human airway epithelia cell&Duration:21d@GSE106812.MicroArray.HuGene-1_0-st-v1,IL13,Airway Epithelia,21d,20ng/mL,Lung_Epithelial,Epithelial
+IL13@Condition:Airway Epithelia&Duration:48h@GSE116927.RNASeq.SRP153060_GRCh38,IL13,Airway Epithelia,48h,,Lung_Epithelial,Epithelial
+IL1B&Duration:8h@Condition:Airway Smooth Muscle.Asthmatic@GSE63383.MicroArray.HuGene-1_0-st-v1,IL1B,Airway Smooth Muscle.Asthmatic,8h,,,Smooth_muscle
+TGFB1&Duration:8h@Condition:Airway Smooth Muscle.Asthmatic@GSE63383.MicroArray.HuGene-1_0-st-v1,TGFB1,Airway Smooth Muscle.Asthmatic,8h,,,Smooth_muscle
+IL1B&Duration:8h@Condition:Airway Smooth Muscle.Healthy@GSE63383.MicroArray.HuGene-1_0-st-v1,IL1B,Airway Smooth Muscle.Healthy,8h,,,Smooth_muscle
+TGFB1&Duration:8h@Condition:Airway Smooth Muscle.Healthy@GSE63383.MicroArray.HuGene-1_0-st-v1,TGFB1,Airway Smooth Muscle.Healthy,8h,,,Smooth_muscle
+IFNG&Dose:20 ng/mL_Duration:24h@Condition:Alveolar macrophage@GSE64995.MicroArray.HuEx-1_0-st-v1,IFNG,Alveolar Macrophage,24h,20ng/mL,,Mac_Mono
+CXCL12&Duration:120min@Condition:B cells@GSE120368.MicroArray.GPL10558,CXCL12,B,120m,,,Bcell
+CXCL12&Duration:30min@Condition:B cells@GSE120368.MicroArray.GPL10558,CXCL12,B,30m,,,Bcell
+CXCL12&Duration:360min@Condition:B cells@GSE120368.MicroArray.GPL10558,CXCL12,B,360m,,,Bcell
+IFNA@Condition:B-cell@GSE117637.RNASeq.SRP155182_GRCh38,IFNA,B,,,,Bcell
+IFNA@Condition:B cells&Duration:12h@GSE75007.MicroArray.GPL10558,IFNA,B,12h,,,Bcell
+IFNA@Condition:B cells&Duration:1h@GSE75007.MicroArray.GPL10558,IFNA,B,1h,,,Bcell
+IFNA@Condition:B cells&Duration:24h@GSE75007.MicroArray.GPL10558,IFNA,B,24h,,,Bcell
+IFNA@Condition:B cells&Duration:3h@GSE75007.MicroArray.GPL10558,IFNA,B,3h,,,Bcell
+IFNA@Condition:B cells&Duration:48h@GSE75007.MicroArray.GPL10558,IFNA,B,48h,,,Bcell
+IFNA@Condition:B cells&Duration:6h@GSE75007.MicroArray.GPL10558,IFNA,B,6h,,,Bcell
+IFNA@Condition:B cells&Duration:96h@GSE75007.MicroArray.GPL10558,IFNA,B,96h,,,Bcell
+IFNG@Condition:B cell@GSE111475.MicroArray.GPL10558,IFNG,B,,,,Bcell
+IFNG@Condition:B cells&Duration:12h@GSE75007.MicroArray.GPL10558,IFNG,B,12h,,,Bcell
+IFNG@Condition:B cells&Duration:1h@GSE75007.MicroArray.GPL10558,IFNG,B,1h,,,Bcell
+IFNG@Condition:B cells&Duration:24h@GSE75007.MicroArray.GPL10558,IFNG,B,24h,,,Bcell
+IFNG@Condition:B cells&Duration:3h@GSE75007.MicroArray.GPL10558,IFNG,B,3h,,,Bcell
+IFNG@Condition:B cells&Duration:48h@GSE75007.MicroArray.GPL10558,IFNG,B,48h,,,Bcell
+IFNG@Condition:B cells&Duration:6h@GSE75007.MicroArray.GPL10558,IFNG,B,6h,,,Bcell
+IFNG@Condition:B cells&Duration:96h@GSE75007.MicroArray.GPL10558,IFNG,B,96h,,,Bcell
+IL2@Condition:B cells@GSE102460.RNASeq.SRP115151_GRCh38,IL2,B,,,,Bcell
+IL21@Condition:B cell@GSE111475.MicroArray.GPL10558,IL21,B,,,,Bcell
+TGFB3&Dose:2.5ng/ml@Condition:B cells&Duration:20h@GSE120368.MicroArray.GPL10558,TGFB3,B,20h,2.5ng/mL,,Bcell
+TGFB3&Dose:2.5ng/ml@Condition:B cells&Duration:12h@GSE120367.MicroArray.GPL10558,TGFB3,B,12h,2.5ng/mL,,Bcell
+TGFB3&Dose:2.5ng/ml@Condition:B cells&Duration:14d@GSE120367.MicroArray.GPL10558,TGFB3,B,14d,2.5ng/mL,,Bcell
+TGFB3&Dose:2.5ng/ml@Condition:B cells&Duration:1d@GSE120367.MicroArray.GPL10558,TGFB3,B,1d,2.5ng/mL,,Bcell
+TGFB3&Dose:2.5ng/ml@Condition:B cells&Duration:1h@GSE120367.MicroArray.GPL10558,TGFB3,B,1h,2.5ng/mL,,Bcell
+TGFB3&Dose:2.5ng/ml@Condition:B cells&Duration:2d@GSE120367.MicroArray.GPL10558,TGFB3,B,2d,2.5ng/mL,,Bcell
+TGFB3&Dose:2.5ng/ml@Condition:B cells&Duration:3h@GSE120367.MicroArray.GPL10558,TGFB3,B,3h,2.5ng/mL,,Bcell
+TGFB3&Dose:2.5ng/ml@Condition:B cells&Duration:4d@GSE120367.MicroArray.GPL10558,TGFB3,B,4d,2.5ng/mL,,Bcell
+TGFB3&Dose:2.5ng/ml@Condition:B cells&Duration:6h@GSE120367.MicroArray.GPL10558,TGFB3,B,6h,2.5ng/mL,,Bcell
+TGFB3&Dose:2.5ng/ml@Condition:B cells&Duration:7d@GSE120367.MicroArray.GPL10558,TGFB3,B,7d,2.5ng/mL,,Bcell
+NGF&Dose:10 ng/ml_Duration:24h@Condition:Basophil@GSE64639.MicroArray.GPL10558,NGF,Basophil,24h,10ng/mL,,Granulocyte
+IFNB&Dose:0.2 ng/ml_Duration:24h@Condition:BEAS-2B cells@GSE114284.RNASeq.SRP145257_GRCh38,IFNB,Beas2B,24h,0.2ng/mL,Lung_Epithelial,Epithelial
+IFNL&Dose:5ng/ml_Duration:24h@Condition:BEAS-2B cells@GSE114284.RNASeq.SRP145257_GRCh38,IFNL,Beas2B,24h,5ng/mL,Lung_Epithelial,Epithelial
+IL4&Dose:25 ng/ml@Condition:Blood CD14+ monocytes&Duration:6d@GSE79706.MicroArray.HG-U133_Plus_2,IL4,Blood Cd14+ Monocyte,6d,25ng/mL,,Mac_Mono
+IL12&Dose:20ng/ml@Condition:Blood Tregs&Duration:4d@GSE119191.RNASeq.SRP159079_GRCh38,IL12,Blood Tregs,4d,20ng/mL,,Tcell
+IFNA&Dose:10ng/ml_Duration:6h@Condition:blood vessel endothelial cell@E-MEXP-3746.MicroArray.HuEx-1_0-st-v2,IFNA,Blood Vessel Endothelial,6h,10ng/mL,,Endothelial
+IL17A&Dose:10ng/ml@Condition:bronchial airway smooth muscle (ASM) cells&Duration:2h@GSE35643.MicroArray.HuGene-1_0-st-v1,IL17A,Bronchial Airway Smooth Muscle,2h,10ng/mL,,Smooth_muscle
+IL13@Condition:Human bronchial cell line A549&Duration:24h@GSE3183.MicroArray.HG-U133A,IL13,Bronchial Cell Line A549,24h,,A549,Lung_tumor
+IFNB&Dose:1000 U/ml@Condition:Bronchial Epithelial&Duration:0.25 h@GSE19392.MicroArray.HT_HG-U133A,IFNB,Bronchial Epithelial,0.25h,1000U/mL,Lung_Epithelial,Epithelial
+IFNB&Dose:1000 U/ml@Condition:Bronchial Epithelial&Duration:0.5 h@GSE19392.MicroArray.HT_HG-U133A,IFNB,Bronchial Epithelial,0.5h,1000U/mL,Lung_Epithelial,Epithelial
+IFNB&Dose:1000 U/ml@Condition:Bronchial Epithelial&Duration:1 h@GSE19392.MicroArray.HT_HG-U133A,IFNB,Bronchial Epithelial,1h,1000U/mL,Lung_Epithelial,Epithelial
+IFNB&Dose:1000 U/ml@Condition:Bronchial Epithelial&Duration:1.5 h@GSE19392.MicroArray.HT_HG-U133A,IFNB,Bronchial Epithelial,1.5h,1000U/mL,Lung_Epithelial,Epithelial
+IFNB&Dose:1000 U/ml@Condition:Bronchial Epithelial&Duration:12 h@GSE19392.MicroArray.HT_HG-U133A,IFNB,Bronchial Epithelial,12h,1000U/mL,Lung_Epithelial,Epithelial
+IFNB&Dose:1000 U/ml@Condition:Bronchial Epithelial&Duration:18 h@GSE19392.MicroArray.HT_HG-U133A,IFNB,Bronchial Epithelial,18h,1000U/mL,Lung_Epithelial,Epithelial
+IFNB&Dose:1000 U/ml@Condition:Bronchial Epithelial&Duration:2 h@GSE19392.MicroArray.HT_HG-U133A,IFNB,Bronchial Epithelial,2h,1000U/mL,Lung_Epithelial,Epithelial
+IFNB&Dose:1000 U/ml@Condition:Bronchial Epithelial&Duration:4 h@GSE19392.MicroArray.HT_HG-U133A,IFNB,Bronchial Epithelial,4h,1000U/mL,Lung_Epithelial,Epithelial
+IFNB&Dose:1000 U/ml@Condition:Bronchial Epithelial&Duration:6 h@GSE19392.MicroArray.HT_HG-U133A,IFNB,Bronchial Epithelial,6h,1000U/mL,Lung_Epithelial,Epithelial
+IFNB&Dose:1000 U/ml@Condition:Bronchial Epithelial&Duration:8 h@GSE19392.MicroArray.HT_HG-U133A,IFNB,Bronchial Epithelial,8h,1000U/mL,Lung_Epithelial,Epithelial
+TGFB1&Dose:5 ng/mL@Condition:Bronchial epithelial cells@GSE100574.RNASeq.SRP110620_GRCh38,TGFB1,Bronchial Epithelial,,5ng/mL,Lung_Epithelial,Epithelial
+TNFA@Condition:Bronchial Epithelial Beas-B2@GSE16650.MicroArray.HG-U133_Plus_2,TNFA,Bronchial Epithelial Beas-B2,,,Lung_Epithelial,Epithelial
+TNFA&Dose:0.1 ng/ml@Condition:bronchus epithelial cell&Duration:0.5h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,0.5h,0.1ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:1.0 ng/ml@Condition:bronchus epithelial cell&Duration:0.5h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,0.5h,1ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:10.0 ng/ml@Condition:bronchus epithelial cell&Duration:0.5h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,0.5h,10ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:100.0 ng/ml@Condition:bronchus epithelial cell&Duration:0.5h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,0.5h,100ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:0.1 ng/ml@Condition:bronchus epithelial cell&Duration:2.0h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,2h,0.1ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:1.0 ng/ml@Condition:bronchus epithelial cell&Duration:2.0h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,2h,1ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:10.0 ng/ml@Condition:bronchus epithelial cell&Duration:2.0h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,2h,10ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:100.0 ng/ml@Condition:bronchus epithelial cell&Duration:2.0h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,2h,100ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:0.1 ng/ml@Condition:bronchus epithelial cell&Duration:24.0h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,24h,0.1ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:1.0 ng/ml@Condition:bronchus epithelial cell&Duration:24.0h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,24h,1ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:10.0 ng/ml@Condition:bronchus epithelial cell&Duration:24.0h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,24h,10ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:100.0 ng/ml@Condition:bronchus epithelial cell&Duration:24.0h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,24h,100ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:0.1 ng/ml@Condition:bronchus epithelial cell&Duration:4.0h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,4h,0.1ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:1.0 ng/ml@Condition:bronchus epithelial cell&Duration:4.0h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,4h,1ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:10.0 ng/ml@Condition:bronchus epithelial cell&Duration:4.0h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,4h,10ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:100.0 ng/ml@Condition:bronchus epithelial cell&Duration:4.0h@E-MTAB-1027.MicroArray.HG-U133_Plus_2,TNFA,Bronchus Epithelial,4h,100ng/mL,Lung_Epithelial,Epithelial
+BMP2@Condition:CCL171&Duration:24h@GSE66108.MicroArray.GPL9257,BMP2,Ccl171,24h,,Lung_Fibroblast,Fibroblast
+BMP4@Condition:CCL171&Duration:24h@GSE66108.MicroArray.GPL9257,BMP4,Ccl171,24h,,Lung_Fibroblast,Fibroblast
+BMP4@Condition:CCL-171&Duration:12h@GSE66109.MicroArray.GPL19807,BMP4,Ccl171,12h,,Lung_Fibroblast,Fibroblast
+BMP4@Condition:CCL-171&Duration:24h@GSE66109.MicroArray.GPL19807,BMP4,Ccl171,24h,,Lung_Fibroblast,Fibroblast
+BMP4@Condition:CCL-171&Duration:3h@GSE66109.MicroArray.GPL19807,BMP4,Ccl171,3h,,Lung_Fibroblast,Fibroblast
+BMP4@Condition:CCL-171&Duration:48h@GSE66109.MicroArray.GPL19807,BMP4,Ccl171,48h,,Lung_Fibroblast,Fibroblast
+BMP7@Condition:CCL171&Duration:24h@GSE66108.MicroArray.GPL9257,BMP7,Ccl171,24h,,Lung_Fibroblast,Fibroblast
+IGF1&Dose:50ng/ml@Condition:CCL 171 fibroblasts&Duration:24h@GSE18954.MicroArray.GPL9550,IGF1,Ccl171 Fibroblast,24h,50ng/mL,Lung_Fibroblast,Fibroblast
+TGFB1@Condition:CCL210 fibroblast@GSE63659.MicroArray.GPL13667,TGFB1,Ccl210 Fibroblast,,,,Fibroblast
+IL17A&Dose:200ng/mL_Duration:24h@Condition:CD14+ monocytes@GSE54884.MicroArray.HG-U133A_2,IL17A,Cd14+ Monocyte,24h,200ng/mL,,Mac_Mono
+IL4&Duration:144h@Condition:CD14+ monocytes@GSE96715.RNASeq.SRP102019_GRCh38,IL4,Cd14+ Monocyte,144h,,,Mac_Mono
+IL4&Duration:72h@Condition:CD14+ monocytes@GSE96715.RNASeq.SRP102019_GRCh38,IL4,Cd14+ Monocyte,72h,,,Mac_Mono
+CXCL12@Condition:CD14+ Peripheral Blood Monocytes@GSE24496.MicroArray.GPL11010,CXCL12,Cd14+ Peripheral Blood Monocyte,,,,Mac_Mono
+GMCSF&Duration:72h@Condition:CD14pos_monocyte@GSE96703.MicroArray.GPL6947,GMCSF,Cd14Pos_Monocyte,72h,,,Mac_Mono
+MCSF&Duration:72h@Condition:CD14pos_monocyte@GSE96703.MicroArray.GPL6947,MCSF,Cd14Pos_Monocyte,72h,,,Mac_Mono
+IL7@Condition:CD19+ B cells@E-MEXP-2878.MicroArray.HG-U133_Plus_2,IL7,Cd19+ B,,,,Bcell
+IL4@Condition:CD25- T cell&Duration:10d@GSE24634.MicroArray.HG-U133A,IL4,Cd25- T,10d,,,Tcell
+IL4@Condition:CD25- T cell&Duration:3d@GSE24634.MicroArray.HG-U133A,IL4,Cd25- T,3d,,,Tcell
+IL4@Condition:CD25- T cell&Duration:5d@GSE24634.MicroArray.HG-U133A,IL4,Cd25- T,5d,,,Tcell
+IL4@Condition:CD25- T cell&Duration:7d@GSE24634.MicroArray.HG-U133A,IL4,Cd25- T,7d,,,Tcell
+IL4@Condition:CD25+ T cell&Duration:10d@GSE24634.MicroArray.HG-U133A,IL4,Cd25+ T,10d,,,Tcell
+IL4@Condition:CD25+ T cell&Duration:3d@GSE24634.MicroArray.HG-U133A,IL4,Cd25+ T,3d,,,Tcell
+IL4@Condition:CD25+ T cell&Duration:5d@GSE24634.MicroArray.HG-U133A,IL4,Cd25+ T,5d,,,Tcell
+IL4@Condition:CD25+ T cell&Duration:7d@GSE24634.MicroArray.HG-U133A,IL4,Cd25+ T,7d,,,Tcell
+IFNB@Condition:DC@GSE131990.RNASeq.SRP199919_GRCh38,IFNB,Dc,,,,DC
+IFNG@Condition:DC@GSE131990.RNASeq.SRP199919_GRCh38,IFNG,Dc,,,,DC
+IFNL@Condition:DC@GSE131990.RNASeq.SRP199919_GRCh38,IFNL,Dc,,,,DC
+IL10@Condition:DC@GSE131990.RNASeq.SRP199919_GRCh38,IL10,Dc,,,,DC
+IL13@Condition:DC@GSE131990.RNASeq.SRP199919_GRCh38,IL13,Dc,,,,DC
+IL4@Condition:DC@GSE131990.RNASeq.SRP199919_GRCh38,IL4,Dc,,,,DC
+IFNB@Condition:Dendritic@GSE54970.MicroArray.HG-U133_Plus_2,IFNB,Dendritic,,,,DC
+IFNG&Dose:100 u/m@Condition:Dendritic@E-MTAB-1326.MicroArray.SAMHD1_and_IFN_human_cells,IFNG,Dendritic,,100U/m,,DC
+IL10@Condition:Dendritic&Duration:12h@GSE45466.MicroArray.GPL10558,IL10,Dendritic,12h,,,DC
+IL17A@Condition:dendritic cells@GSE53163.MicroArray.HG-U133_Plus_2,IL17A,Dendritic,,,,DC
+IL6@Condition:Dendritic&Duration:12h@GSE45466.MicroArray.GPL10558,IL6,Dendritic,12h,,,DC
+TNFA&Dose:20 ng/mL@Condition:dendritic cells&Duration:6h@GSE59237.MicroArray.HG-U133_Plus_2,TNFA,Dendritic,6h,20ng/mL,,DC
+TSLP&Dose:20 ng/uL@Condition:dendritic cells&Duration:6h@GSE59237.MicroArray.HG-U133_Plus_2,TSLP,Dendritic,6h,20ng/uL,,DC
+IFNA@Condition:Endothelial@GSE3920.MicroArray.GPL96,IFNA,Endothelial,,,,Endothelial
+IFNB@Condition:Endothelial@GSE3920.MicroArray.GPL96,IFNB,Endothelial,,,,Endothelial
+IFNG@Condition:Endothelial@GSE3920.MicroArray.GPL96,IFNG,Endothelial,,,,Endothelial
+IL1B@Condition:Endothelial cells@GSE96962.RNASeq.SRP102361_GRCh38,IL1B,Endothelial,,,,Endothelial
+TNFA@Condition:Endothelial@GSE6257.MicroArray.HG-U133_Plus_2,TNFA,Endothelial,,,,Endothelial
+TNFA@Condition:Endothelial cells@GSE96962.RNASeq.SRP102361_GRCh38,TNFA,Endothelial,,,,Endothelial
+VEGFA&Dose:50ng/ml_Duration:30min@Condition:endothelial cell@GSE93590.RNASeq.SRP096716_GRCh38,VEGFA,Endothelial,30m,50ng/mL,,Endothelial
+TNFA@Condition:Endothelium@GSE53999.MicroArray.GPL16043,TNFA,Endothelium,,,,Endothelial
+GMCSF@Condition:Eosinophil@GSE128027.RNASeq.SRP187898_GRCh38,GMCSF,Eosinophil,,,,Granulocyte
+IL3@Condition:Eosinophil@GSE128027.RNASeq.SRP187898_GRCh38,IL3,Eosinophil,,,,Granulocyte
+IL5@Condition:Eosinophil@GSE128027.RNASeq.SRP187898_GRCh38,IL5,Eosinophil,,,,Granulocyte
+IL5@Condition:eosinophils@GSE75142.MicroArray.GPL17077,IL5,Eosinophils,,,,Granulocyte
+AREG&Dose:100.0ng/ml@Condition:epithelial cell@E-MTAB-2091.MicroArray.HG-U133_Plus_2,AREG,Epithelial,,100ng/mL,,Epithelial
+CNTF&Dose:200.0ng/ml@Condition:epithelial cell@E-MTAB-2091.MicroArray.HG-U133_Plus_2,CNTF,Epithelial,,200ng/mL,,Epithelial
+EGF&Dose:100.0ng/ml@Condition:epithelial cell@E-MTAB-2091.MicroArray.HG-U133_Plus_2,EGF,Epithelial,,100ng/mL,,Epithelial
+FGF8&Dose:100.0ng/ml@Condition:epithelial cell@E-MTAB-2091.MicroArray.HG-U133_Plus_2,FGF8,Epithelial,,100ng/mL,,Epithelial
+HBEGF&Dose:50.0ng/ml@Condition:epithelial cell@E-MTAB-2091.MicroArray.HG-U133_Plus_2,HBEGF,Epithelial,,50ng/mL,,Epithelial
+IFNB@Condition:Epithelial&Duration:96h@GSE106782.MicroArray.GPL10558,IFNB,Epithelial,96h,,,Epithelial
+IGF2&Dose:100.0ng/ml@Condition:epithelial cell@E-MTAB-2091.MicroArray.HG-U133_Plus_2,IGF2,Epithelial,,100ng/mL,,Epithelial
+IL10@Condition:epithelial cell@GSE78095.MicroArray.GPL17077,IL10,Epithelial,,,,Epithelial
+IL13@Condition:Epithelial&Duration:21d@GSE37693.MicroArray.GPL6947,IL13,Epithelial,21d,,,Epithelial
+INS&Dose:1722.0ng/ml@Condition:epithelial cell@E-MTAB-2091.MicroArray.HG-U133_Plus_2,INS,Epithelial,,1722ng/mL,,Epithelial
+NTF3&Dose:200.0ng/ml@Condition:epithelial cell@E-MTAB-2091.MicroArray.HG-U133_Plus_2,NTF3,Epithelial,,200ng/mL,,Epithelial
+PDGFB&Dose:50.0ng/ml@Condition:epithelial cell@E-MTAB-2091.MicroArray.HG-U133_Plus_2,PDGFB,Epithelial,,50ng/mL,,Epithelial
+TGFA&Dose:200.0ng/ml@Condition:epithelial cell@E-MTAB-2091.MicroArray.HG-U133_Plus_2,TGFA,Epithelial,,200ng/mL,,Epithelial
+IL1B&Dose:20 ng/ml@Condition:epithelium of bronchus&Duration:4h@E-MTAB-7992.MicroArray.HG-U133_Plus_2,IL1B,Epithelium Of Bronchus,4h,20ng/mL,Lung_Epithelial,Epithelial
+IL1B&Dose:40 ng/ml@Condition:epithelium of bronchus&Duration:4h@E-MTAB-7992.MicroArray.HG-U133_Plus_2,IL1B,Epithelium Of Bronchus,4h,40ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:20 ng/ml@Condition:epithelium of bronchus&Duration:4h@E-MTAB-7992.MicroArray.HG-U133_Plus_2,TNFA,Epithelium Of Bronchus,4h,20ng/mL,Lung_Epithelial,Epithelial
+TNFA&Dose:40 ng/ml@Condition:epithelium of bronchus&Duration:4h@E-MTAB-7992.MicroArray.HG-U133_Plus_2,TNFA,Epithelium Of Bronchus,4h,40ng/mL,Lung_Epithelial,Epithelial
+IL21&Dose:20 ng/ml_Duration:30min@Condition:Expanded NK cells@GSE129044.RNASeq.SRP189872_GRCh38,IL21,Expanded Nk,30m,20ng/mL,,NK
+IL2&Dose:100u/ml_Duration:24h@Condition:FACS purified Tregs@GSE49817.MicroArray.HuGene-1_0-st-v1,IL2,Facs Purified Tregs,24h,100U/mL,,Tcell
+IFNA@Condition:Fibroblast@GSE117637.RNASeq.SRP155182_GRCh38,IFNA,Fibroblast,,,,Fibroblast
+IFNA@Condition:Fibroblast@GSE3920.MicroArray.GPL96,IFNA,Fibroblast,,,,Fibroblast
+IFNA&Dose:10^5 IU/ml_Duration:2h@Condition:Fibroblast@GSE38652.MicroArray.GPL10558,IFNA,Fibroblast,2h,10^5IU/mL,,Fibroblast
+IFNA&Dose:10^5 IU/ml_Duration:8h@Condition:Fibroblast@GSE38652.MicroArray.GPL10558,IFNA,Fibroblast,8h,10^5IU/mL,,Fibroblast
+IFNA@Condition:Fibroblast@GSE41960.MicroArray.PrimeView,IFNA,Fibroblast,,,,Fibroblast
+IFNA@Condition:Fibroblast&Duration:24 h@GSE24125.MicroArray.GPL10913,IFNA,Fibroblast,24h,,,Fibroblast
+IFNB&Duration:6h@Condition:Fibroblast@GSE50954.MicroArray.GPL6104,IFNB,Fibroblast,6h,,,Fibroblast
+IFNB&Duration:8h@Condition:fibroblast@E-MTAB-5919.RNASeq.ERP024336_GRCh38,IFNB,Fibroblast,8h,,,Fibroblast
+IFNG@Condition:Fibroblast@GSE3920.MicroArray.GPL96,IFNG,Fibroblast,,,,Fibroblast
+IFNG&Duration:6h@Condition:Fibroblast@GSE50954.MicroArray.GPL6104,IFNG,Fibroblast,6h,,,Fibroblast
+IFNG&Dose:100 IU/mL_Duration:4d@Condition:fibroblasts@GSE38798.MicroArray.GPL6947,IFNG,Fibroblast,4d,100IU/mL,,Fibroblast
+IFNG@Condition:Fibroblasts@GSE76340.MicroArray.GPL6947,IFNG,Fibroblast,,,,Fibroblast
+IL13&Duration:12@Condition:Fibroblast@GSE56308.MicroArray.GPL6480,IL13,Fibroblast,12,,,Fibroblast
+IL13&Duration:24@Condition:Fibroblast@GSE56308.MicroArray.GPL6480,IL13,Fibroblast,24,,,Fibroblast
+IL13&Duration:2@Condition:Fibroblast@GSE56308.MicroArray.GPL6480,IL13,Fibroblast,2,,,Fibroblast
+IL13&Duration:4@Condition:Fibroblast@GSE56308.MicroArray.GPL6480,IL13,Fibroblast,4,,,Fibroblast
+IL13&Duration:8@Condition:Fibroblast@GSE56308.MicroArray.GPL6480,IL13,Fibroblast,8,,,Fibroblast
+IL17A&Duration:12h@Condition:Human fibroblasts&Dose:1 ng/mL@GSE129484.MicroArray.HuGene-1_0-st-v1,IL17A,Fibroblast,12h,1ng/mL,,Fibroblast
+IL17A&Duration:18h@Condition:Human fibroblasts&Dose:1 ng/mL@GSE129484.MicroArray.HuGene-1_0-st-v1,IL17A,Fibroblast,18h,1ng/mL,,Fibroblast
+IL17A&Duration:1h@Condition:Human fibroblasts&Dose:1 ng/mL@GSE129484.MicroArray.HuGene-1_0-st-v1,IL17A,Fibroblast,1h,1ng/mL,,Fibroblast
+IL17A&Duration:24h@Condition:Human fibroblasts&Dose:1 ng/mL@GSE129484.MicroArray.HuGene-1_0-st-v1,IL17A,Fibroblast,24h,1ng/mL,,Fibroblast
+IL17A&Duration:2h@Condition:Human fibroblasts&Dose:1 ng/mL@GSE129484.MicroArray.HuGene-1_0-st-v1,IL17A,Fibroblast,2h,1ng/mL,,Fibroblast
+IL17A&Duration:4h@Condition:Human fibroblasts&Dose:1 ng/mL@GSE129484.MicroArray.HuGene-1_0-st-v1,IL17A,Fibroblast,4h,1ng/mL,,Fibroblast
+IL17A&Duration:8h@Condition:Human fibroblasts&Dose:1 ng/mL@GSE129484.MicroArray.HuGene-1_0-st-v1,IL17A,Fibroblast,8h,1ng/mL,,Fibroblast
+IL1B@Condition:Fibroblast&Duration:2h@GSE40560.MicroArray.GPL10558,IL1B,Fibroblast,2h,,,Fibroblast
+IL1B@Condition:Fibroblast&Duration:6h@GSE40560.MicroArray.GPL10558,IL1B,Fibroblast,6h,,,Fibroblast
+IL1B&Dose:20ng/ml_Duration:2h@Condition:Fibroblast@GSE38652.MicroArray.GPL10558,IL1B,Fibroblast,2h,20ng/mL,,Fibroblast
+IL1B&Dose:20ng/ml_Duration:8h@Condition:Fibroblast@GSE38652.MicroArray.GPL10558,IL1B,Fibroblast,8h,20ng/mL,,Fibroblast
+IL1B&Dose:@Condition:Fibroblast@GSE92466.MicroArray.GPL10558,IL1B,Fibroblast,,,,Fibroblast
+IL1B&Dose:3 ng/ml_Duration:6h@Condition:Fibroblast@GSE121241.RNASeq.SRP165732_GRCh38,IL1B,Fibroblast,6h,3ng/mL,,Fibroblast
+IL1B&Dose:5ng/ml@Condition:fibroblast&Duration:24h@GSE31064.MicroArray.GPL10558,IL1B,Fibroblast,24h,5ng/mL,,Fibroblast
+IL1B&Dose:5ng/ml@Condition:fibroblast&Duration:8h@GSE31064.MicroArray.GPL10558,IL1B,Fibroblast,8h,5ng/mL,,Fibroblast
+IL4&Duration:12@Condition:Fibroblast@GSE56308.MicroArray.GPL6480,IL4,Fibroblast,12,,,Fibroblast
+IL4&Duration:24@Condition:Fibroblast@GSE56308.MicroArray.GPL6480,IL4,Fibroblast,24,,,Fibroblast
+IL4&Duration:2@Condition:Fibroblast@GSE56308.MicroArray.GPL6480,IL4,Fibroblast,2,,,Fibroblast
+IL4&Duration:4@Condition:Fibroblast@GSE56308.MicroArray.GPL6480,IL4,Fibroblast,4,,,Fibroblast
+IL4&Duration:8@Condition:Fibroblast@GSE56308.MicroArray.GPL6480,IL4,Fibroblast,8,,,Fibroblast
+LIF&Duration:48h@Condition:Fibroblast&Dose:0.2ug@GSE81996.MicroArray.GPL17077,LIF,Fibroblast,48h,0.2ug,,Fibroblast
+LIF&Duration:15d@Condition:Fibroblast&Dose:0.2ug@GSE81997.MicroArray.GPL17077,LIF,Fibroblast,15d,0.2ug,,Fibroblast
+LTA&Dose:@Condition:Fibroblast@GSE92466.MicroArray.GPL10558,LTA,Fibroblast,,,,Fibroblast
+TGFB1@Condition:fibroblast&Duration:12h@GSE99999.RNASeq.SRP109118_GRCh38,TGFB1,Fibroblast,12h,,,Fibroblast
+TGFB1@Condition:fibroblast&Duration:48h@GSE99999.RNASeq.SRP109118_GRCh38,TGFB1,Fibroblast,48h,,,Fibroblast
+TGFB1&Dose:10 ng/ul@Condition:Fibroblast&Duration:48h@GSE27597.MicroArray.HuGene-1_0-st-v1,TGFB1,Fibroblast,48h,10ng/ul,,Fibroblast
+TGFB1&Duration:48h@Condition:Fibroblast&Dose:0.2ug@GSE81996.MicroArray.GPL17077,TGFB1,Fibroblast,48h,0.2ug,,Fibroblast
+TGFB1&Duration:15d@Condition:Fibroblast&Dose:0.2ug@GSE81997.MicroArray.GPL17077,TGFB1,Fibroblast,15d,0.2ug,,Fibroblast
+TGFB2&Duration:24h@Condition:fibroblast@E-MTAB-4871.MicroArray.exprs,TGFB2,Fibroblast,24h,,,Fibroblast
+TNFA@Condition:Fibroblast&Duration:2h@GSE40560.MicroArray.GPL10558,TNFA,Fibroblast,2h,,,Fibroblast
+TNFA@Condition:Fibroblast&Duration:6h@GSE40560.MicroArray.GPL10558,TNFA,Fibroblast,6h,,,Fibroblast
+TNFA&Dose:20 ng/ml@Condition:Fibroblast@GSE92466.MicroArray.GPL10558,TNFA,Fibroblast,,20ng/mL,,Fibroblast
+TNFA&Dose:5ng/ml@Condition:fibroblast&Duration:24h@GSE31064.MicroArray.GPL10558,TNFA,Fibroblast,24h,5ng/mL,,Fibroblast
+TNFA&Dose:5ng/ml@Condition:fibroblast&Duration:8h@GSE31064.MicroArray.GPL10558,TNFA,Fibroblast,8h,5ng/mL,,Fibroblast
+WNT3A@Condition:fibroblast&Duration:24h@E-MTAB-837.MicroArray.ChipsterNormalized_Replicate1+2_24h,WNT3A,Fibroblast,24h,,,Fibroblast
+WNT3A@Condition:fibroblast&Duration:8h@E-MTAB-837.MicroArray.ChipsterNormalized_Replicate1+2_8h,WNT3A,Fibroblast,8h,,,Fibroblast
+IL13@Condition:Fibroblast.IMR-90@GSE47527.MicroArray.GPL6480,IL13,Fibroblast.Imr90,,,Lung_Fibroblast,Fibroblast
+IL13@Condition:Fibroblast.IMR90&Duration:24h@GSE47542.MicroArray.GPL6480,IL13,Fibroblast.Imr90,24h,,Lung_Fibroblast,Fibroblast
+IL4@Condition:Fibroblast.IMR90&Duration:24h@GSE47542.MicroArray.GPL6480,IL4,Fibroblast.Imr90,24h,,Lung_Fibroblast,Fibroblast
+OSM&Dose:10 ng/mL@Condition:Fibroblast.IMR90@GSE29655.MicroArray.HuGene-1_0-st-v1,OSM,Fibroblast.Imr90,,10ng/mL,Lung_Fibroblast,Fibroblast
+TNFA@Condition:Fibroblast.IMR90&Duration:24h@GSE47542.MicroArray.GPL6480,TNFA,Fibroblast.Imr90,24h,,Lung_Fibroblast,Fibroblast
+IFNG@Condition:Fibroblastic Reticular Cell@GSE89612.MicroArray.GPL16699,IFNG,Fibroblastic Reticular,,,,Fibroblast
+IL1B&Dose:20ng/ml@Condition:Fibroblasts from healthy control&Duration:4h@GSE32390.MicroArray.GPL10558,IL1B,Fibroblasts From Healthy Control,4h,20ng/mL,,Fibroblast
+HGF@Condition:H1975&Duration:24h@GSE98979.MicroArray.HuGene-2_0-st,HGF,H1975,24h,,H1975,Lung_tumor
+HGF@Condition:H1975&Duration:48h@GSE98979.MicroArray.HuGene-2_0-st,HGF,H1975,48h,,H1975,Lung_tumor
+TGFB1@Condition:H1975&Duration:24h@GSE98979.MicroArray.HuGene-2_0-st,TGFB1,H1975,24h,,H1975,Lung_tumor
+TGFB1@Condition:H1975&Duration:48h@GSE98979.MicroArray.HuGene-2_0-st,TGFB1,H1975,48h,,H1975,Lung_tumor
+TGFB1@Condition:HCC827@GSE49644.MicroArray.HG-U133_Plus_2,TGFB1,Hcc827,,,Hcc827,Lung_tumor
+TGFB1&Duration:30d@Condition:HCC827 cell line@GSE123031.MicroArray.GPL10558,TGFB1,Hcc827,30d,,Hcc827,Lung_tumor
+TGFB1@Condition:HFL1 fibroblast@GSE34815.MicroArray.GPL13607,TGFB1,Hfl1 Fibroblast,,,,Fibroblast
+IL1B@Condition:IL-1RI- Th17@GSE127457.RNASeq.SRP187077_GRCh38,IL1B,Il1Ri- Th17,,,,Tcell
+IL1B@Condition:IL-1RI+ Th17@GSE127457.RNASeq.SRP187077_GRCh38,IL1B,Il1Ri+ Th17,,,,Tcell
+PDGFD@Condition:ILC1@GSE107043.MicroArray.HuGene-1_0-st-v1,PDGFD,Ilc1,,,,ILC
+IL1B&Dose:10 ng/ml@Condition:ILC2@GSE72460.RNASeq.SRP062910_GRCh38,IL1B,Ilc2,,10ng/mL,,ILC
+"IL25@Condition:ILC2 (Lineage negative, CRTH2+, CD161+, CD127+)&Duration:24h@GSE45458.MicroArray.GPL13497",IL25,Ilc2,24h,,,ILC
+"IL25@Condition:ILC2 (Lineage negative, CRTH2+, CD161+, CD127+)&Duration:6h@GSE45458.MicroArray.GPL13497",IL25,Ilc2,6h,,,ILC
+"IL33@Condition:ILC2 (Lineage negative, CRTH2+, CD161+, CD127+)&Duration:24h@GSE45458.MicroArray.GPL13497",IL33,Ilc2,24h,,,ILC
+"IL33@Condition:ILC2 (Lineage negative, CRTH2+, CD161+, CD127+)&Duration:6h@GSE45458.MicroArray.GPL13497",IL33,Ilc2,6h,,,ILC
+"TSLP@Condition:ILC2 (Lineage negative, CRTH2+, CD161+, CD127+)&Duration:24h@GSE45458.MicroArray.GPL13497",TSLP,Ilc2,24h,,,ILC
+IFNA@Condition:Immature DC@GSE7509.MicroArray.HG-U133_Plus_2,IFNA,Immature Dc,,,,DC
+CD40L@Condition:immature dendritic cells&Duration:1h@GSE85544.MicroArray.HT_HG-U133_Plus_PM,CD40L,Immature Dendritic,1h,,,DC
+CD40L@Condition:immature dendritic cells&Duration:24h@GSE85544.MicroArray.HT_HG-U133_Plus_PM,CD40L,Immature Dendritic,24h,,,DC
+CD40L@Condition:immature dendritic cells&Duration:3h@GSE85544.MicroArray.HT_HG-U133_Plus_PM,CD40L,Immature Dendritic,3h,,,DC
+CXCL8@Condition:immature dendritic cells (iDCs)@GSE39999.MicroArray.HG-U133_Plus_2,CXCL8,Immature Dendritic Cells,,,,DC
+TNFA&Dose:10 ng/ml_Duration:17h@Condition:Jurkat cells@GSE2504.MicroArray.GPL96,TNFA,Jurkat,17h,10ng/mL,,Tcell
+TNFA@Condition:Jurkat (T cell line)@GSE46599.MicroArray.GPL10558,TNFA,Jurkat,,,,Tcell
+IFNA&Dose:100u/ml@Condition:cell_line_A549&Duration:24h@GSE21158.MicroArray.GPL6098,IFNA,Line_A549,24h,100U/mL,A549,Lung_tumor
+IFNG@Condition:Lung adenocarcinoma@GSE109720.RNASeq.SRP131516_GRCh38,IFNG,Lung Adenocarcinoma,,,LUAD,Lung_tumor
+TGFB1&Dose:2ng/ml_Duration:12h@Condition:lung epithelial cells@GSE26858.MicroArray.GPL6480,TGFB1,Lung Epithelial,12h,2ng/mL,Lung_Epithelial,Epithelial
+TGFB1&Dose:2ng/ml_Duration:24h@Condition:lung epithelial cells@GSE26858.MicroArray.GPL6480,TGFB1,Lung Epithelial,24h,2ng/mL,Lung_Epithelial,Epithelial
+TGFB1&Dose:2ng/ml_Duration:2h@Condition:lung epithelial cells@GSE26858.MicroArray.GPL6480,TGFB1,Lung Epithelial,2h,2ng/mL,Lung_Epithelial,Epithelial
+EGF@Condition:Human Lung Fibroblasts&Duration:0.5h@GSE60880.MicroArray.HG-U133A_2,EGF,Lung Fibroblast,0.5h,,Lung_Fibroblast,Fibroblast
+EGF@Condition:Human Lung Fibroblasts&Duration:1.0h@GSE60880.MicroArray.HG-U133A_2,EGF,Lung Fibroblast,1h,,Lung_Fibroblast,Fibroblast
+EGF@Condition:Human Lung Fibroblasts&Duration:2.0h@GSE60880.MicroArray.HG-U133A_2,EGF,Lung Fibroblast,2h,,Lung_Fibroblast,Fibroblast
+EGF@Condition:Human Lung Fibroblasts&Duration:8.0h@GSE60880.MicroArray.HG-U133A_2,EGF,Lung Fibroblast,8h,,Lung_Fibroblast,Fibroblast
+IL13@Condition:lung fibroblast cell line@GSE56338.MicroArray.GPL10558,IL13,Lung Fibroblast,,,Lung_Fibroblast,Fibroblast
+IL1B@Condition:Human Lung Fibroblasts&Duration:0.5h@GSE60880.MicroArray.HG-U133A_2,IL1B,Lung Fibroblast,0.5h,,Lung_Fibroblast,Fibroblast
+IL1B@Condition:Human Lung Fibroblasts&Duration:1.0h@GSE60880.MicroArray.HG-U133A_2,IL1B,Lung Fibroblast,1h,,Lung_Fibroblast,Fibroblast
+IL1B@Condition:Human Lung Fibroblasts&Duration:2.0h@GSE60880.MicroArray.HG-U133A_2,IL1B,Lung Fibroblast,2h,,Lung_Fibroblast,Fibroblast
+IL1B@Condition:Human Lung Fibroblasts&Duration:8.0h@GSE60880.MicroArray.HG-U133A_2,IL1B,Lung Fibroblast,8h,,Lung_Fibroblast,Fibroblast
+TGFB1@Condition:Human Lung Fibroblasts&Duration:8.0h@GSE60880.MicroArray.HG-U133A_2,TGFB1,Lung Fibroblast,8h,,Lung_Fibroblast,Fibroblast
+TGFB1&Duration:24h@Condition:Lung_fibroblast_IPF@GSE135065.MicroArray.PrimeView,TGFB1,Lung_Fibroblast_Ipf,24h,,,Fibroblast
+TGFB1&Duration:5d@Condition:Lung_fibroblast_IPF@GSE135065.MicroArray.PrimeView,TGFB1,Lung_Fibroblast_Ipf,5d,,,Fibroblast
+TGFB1&Duration:24h@Condition:Lung_fibroblast_normal@GSE135065.MicroArray.PrimeView,TGFB1,Lung_Fibroblast_Normal,24h,,Lung_Fibroblast,Fibroblast
+TGFB1&Duration:5d@Condition:Lung_fibroblast_normal@GSE135065.MicroArray.PrimeView,TGFB1,Lung_Fibroblast_Normal,5d,,Lung_Fibroblast,Fibroblast
+ADM@Condition:Human lymphatic endothelial cells&Duration:0.25h@GSE59938.MicroArray.GPL4133,ADM,Lymphatic Endothelial,0.25h,,,Endothelial
+ADM@Condition:Human lymphatic endothelial cells&Duration:1.0h@GSE59938.MicroArray.GPL4133,ADM,Lymphatic Endothelial,1h,,,Endothelial
+ADM@Condition:Human lymphatic endothelial cells&Duration:24.0h@GSE59938.MicroArray.GPL4133,ADM,Lymphatic Endothelial,24h,,,Endothelial
+HGF@Condition:lymphatic endothelial cells@E-MEXP-256.MicroArray.HG-U133_Plus_2,HGF,Lymphatic Endothelial,,,,Endothelial
+VEGFA&Duration:1h@Condition:lymphatic endothelial cell@GSE11228.MicroArray.GPL2986,VEGFA,Lymphatic Endothelial,1h,,,Endothelial
+VEGFA&Duration:24h@Condition:lymphatic endothelial cell@GSE11228.MicroArray.GPL2986,VEGFA,Lymphatic Endothelial,24h,,,Endothelial
+VEGFA&Duration:4h@Condition:lymphatic endothelial cell@GSE11228.MicroArray.GPL2986,VEGFA,Lymphatic Endothelial,4h,,,Endothelial
+VEGFA&Duration:8h@Condition:lymphatic endothelial cell@GSE11228.MicroArray.GPL2986,VEGFA,Lymphatic Endothelial,8h,,,Endothelial
+VEGFC&Duration:1h@Condition:lymphatic endothelial cell@GSE11228.MicroArray.GPL2986,VEGFC,Lymphatic Endothelial,1h,,,Endothelial
+VEGFC&Duration:24h@Condition:lymphatic endothelial cell@GSE11228.MicroArray.GPL2986,VEGFC,Lymphatic Endothelial,24h,,,Endothelial
+VEGFC&Duration:4h@Condition:lymphatic endothelial cell@GSE11228.MicroArray.GPL2986,VEGFC,Lymphatic Endothelial,4h,,,Endothelial
+VEGFC&Duration:8h@Condition:lymphatic endothelial cell@GSE11228.MicroArray.GPL2986,VEGFC,Lymphatic Endothelial,8h,,,Endothelial
+TGFB1&Duration:24h@Condition:Macrophage IL4@GSE7568.MicroArray.HG-U133_Plus_2,TGFB1,Macrophage Il4,24h,,,Mac_Mono
+IFNB@Condition:memory T-cells@GSE35601.MicroArray.HuGene-1_0-st-v1,IFNB,Memory T,,,,Tcell
+CCL2&Duration:2h@Condition:Monocyte@GSE47122.MicroArray.HG-U133_Plus_2,CCL2,Monocyte,2h,,,Mac_Mono
+EPO&Duration:2w@Condition:monocyte@GSE17582.MicroArray.GPL6883,EPO,Monocyte,2w,,,Mac_Mono
+GMCSF@Condition:Monocyte@GSE123573.RNASeq.SRP173248_GRCh38,GMCSF,Monocyte,,,,Mac_Mono
+GMCSF@Condition:Monocyte@GSE63662.MicroArray.HG-U133_Plus_2,GMCSF,Monocyte,,,,Mac_Mono
+GMCSF&Duration:12h@Condition:Monocyte@GSE35304.MicroArray.GPL6480,GMCSF,Monocyte,12h,,,Mac_Mono
+GMCSF&Duration:24h@Condition:Monocyte@GSE35304.MicroArray.GPL6480,GMCSF,Monocyte,24h,,,Mac_Mono
+GMCSF&Duration:48h@Condition:Monocyte@GSE35304.MicroArray.GPL6480,GMCSF,Monocyte,48h,,,Mac_Mono
+GMCSF&Duration:4h@Condition:Monocyte@GSE35304.MicroArray.GPL6480,GMCSF,Monocyte,4h,,,Mac_Mono
+GMCSF@Condition:Monocyte@GSE75938.MicroArray.PrimeView,GMCSF,Monocyte,,,,Mac_Mono
+GMCSF@Condition:Monocyte@GSE123270.MicroArray.GPL10558,GMCSF,Monocyte,,,,Mac_Mono
+GMCSF@Condition:Monocyte@GSE41889.MicroArray.HG-U133_Plus_2,GMCSF,Monocyte,,,,Mac_Mono
+IFNA@Condition:Monocyte@GSE72502.RNASeq.SRP062958_GRCh38,IFNA,Monocyte,,,,Mac_Mono
+IFNA@Condition:Monocyte@GSE100382.RNASeq.SRP110187_GRCh38,IFNA,Monocyte,,,,Mac_Mono
+IFNA@Condition:Monocytes&Duration:1.5h@GSE38351.MicroArray.HG-U133_Plus_2,IFNA,Monocyte,1.5h,,,Mac_Mono
+IFNA@Condition:Monocyte&Duration:1h@GSE46911.MicroArray.HG-U133A,IFNA,Monocyte,1h,,,Mac_Mono
+IFNA@Condition:Monocyte&Duration:24h@GSE46911.MicroArray.HG-U133A,IFNA,Monocyte,24h,,,Mac_Mono
+IFNA@Condition:Monocyte&Duration:2d@GSE46911.MicroArray.HG-U133A,IFNA,Monocyte,2d,,,Mac_Mono
+IFNA@Condition:Monocyte&Duration:3d@GSE46911.MicroArray.HG-U133A,IFNA,Monocyte,3d,,,Mac_Mono
+IFNA@Condition:Monocyte&Duration:6h@GSE46911.MicroArray.HG-U133A,IFNA,Monocyte,6h,,,Mac_Mono
+IFNB@Condition:Monocytes@GSE34627.MicroArray.GPL6884,IFNB,Monocyte,,,,Mac_Mono
+IFNG@Condition:monocytes@GSE120944.RNASeq.SRP164578_GRCh38,IFNG,Monocyte,,,,Mac_Mono
+IFNG@Condition:Monocytes&Duration:1.5h@GSE38351.MicroArray.HG-U133_Plus_2,IFNG,Monocyte,1.5h,,,Mac_Mono
+IFNG@Condition:Monocyte&Duration:18h@GSE36537.MicroArray.GPL6480,IFNG,Monocyte,18h,,,Mac_Mono
+IFNG@Condition:Monocyte&Duration:6h@GSE36537.MicroArray.GPL6480,IFNG,Monocyte,6h,,,Mac_Mono
+IFNG@Condition:Monocytes@GSE83957.MicroArray.GPL10558,IFNG,Monocyte,,,,Mac_Mono
+IL10@Condition:Monocytes&Duration:1h@GSE35683.MicroArray.HG-U133_Plus_2,IL10,Monocyte,1h,,,Mac_Mono
+IL10@Condition:Monocytes@GSE82315.MicroArray.HuGene-1_0-st-v1,IL10,Monocyte,,,,Mac_Mono
+IL10@Condition:Monocyte&Duration:3h@GSE82166.MicroArray.HuGene-1_0-st-v1,IL10,Monocyte,3h,,,Mac_Mono
+IL10&Duration:10 h@Condition:monocytes@GSE47122.MicroArray.HG-U133_Plus_2,IL10,Monocyte,10h,,,Mac_Mono
+IL13@Condition:Monocyte&Duration:24h@GSE47538.MicroArray.GPL13497,IL13,Monocyte,24h,,,Mac_Mono
+IL13@Condition:Monocyte&Duration:6h@GSE47538.MicroArray.GPL13497,IL13,Monocyte,6h,,,Mac_Mono
+IL1B&Duration:4h@Condition:Monocyte@GSE56681.MicroArray.HG-U133_Plus_2,IL1B,Monocyte,4h,,,Mac_Mono
+IL4@Condition:Monocyte&Duration:24h@GSE47538.MicroArray.GPL13497,IL4,Monocyte,24h,,,Mac_Mono
+IL4@Condition:Monocyte&Duration:6h@GSE47538.MicroArray.GPL13497,IL4,Monocyte,6h,,,Mac_Mono
+IL4&Duration:12h@Condition:Monocyte@GSE35304.MicroArray.GPL6480,IL4,Monocyte,12h,,,Mac_Mono
+IL4&Duration:24h@Condition:Monocyte@GSE35304.MicroArray.GPL6480,IL4,Monocyte,24h,,,Mac_Mono
+IL4&Duration:48h@Condition:Monocyte@GSE35304.MicroArray.GPL6480,IL4,Monocyte,48h,,,Mac_Mono
+IL4&Duration:4h@Condition:Monocyte@GSE35304.MicroArray.GPL6480,IL4,Monocyte,4h,,,Mac_Mono
+IL4@Condition:Monocyte&Duration:18h@GSE36537.MicroArray.GPL6480,IL4,Monocyte,18h,,,Mac_Mono
+IL4@Condition:Monocyte&Duration:6h@GSE36537.MicroArray.GPL6480,IL4,Monocyte,6h,,,Mac_Mono
+IL4@Condition:Monocytes@GSE83957.MicroArray.GPL10558,IL4,Monocyte,,,,Mac_Mono
+IL7&Duration:2h@Condition:Monocyte@E-MTAB-8225.RNASeq.ERP116746_GRCh38,IL7,Monocyte,2h,,,Mac_Mono
+MCSF@Condition:Monocyte@GSE9801.MicroArray.HG-U133_Plus_2,MCSF,Monocyte,,,,Mac_Mono
+MCSF@Condition:Monocyte@GSE123573.RNASeq.SRP173248_GRCh38,MCSF,Monocyte,,,,Mac_Mono
+MCSF@Condition:monocyte@GSE37356.MicroArray.GPL10558,MCSF,Monocyte,,,,Mac_Mono
+MCSF@Condition:Monocyte@GSE9801.MicroArray.HG-U133A,MCSF,Monocyte,,,,Mac_Mono
+MCSF&Duration:4h@Condition:Monocyte@GSE99609.MicroArray.GPL23538,MCSF,Monocyte,4h,,,Mac_Mono
+MCSF@Condition:monocytes@GSE131115.MicroArray.Clariom_S_Human,MCSF,Monocyte,,,,Mac_Mono
+MCSF@Condition:Monocyte@GSE123270.MicroArray.GPL10558,MCSF,Monocyte,,,,Mac_Mono
+MCSF&Duration:7d@Condition:Monocyte@GSE60199.MicroArray.GPL10558,MCSF,Monocyte,7d,,,Mac_Mono
+MCSF@Condition:Monocyte@GSE52647.MicroArray.HuGene-1_0-st-v1,MCSF,Monocyte,,,,Mac_Mono
+TNFA@Condition:Monocyte@GSE100382.RNASeq.SRP110187_GRCh38,TNFA,Monocyte,,,,Mac_Mono
+TNFA@Condition:Monocytes&Duration:1.5h@GSE38351.MicroArray.HG-U133_Plus_2,TNFA,Monocyte,1.5h,,,Mac_Mono
+TNFA&Dose:10ng/ml_Duration:16h@Condition:monocytes@GSE129210.RNASeq.SRP190161_GRCh38,TNFA,Monocyte,16h,10ng/mL,,Mac_Mono
+TNFA&Duration:4h@Condition:Monocyte@GSE56681.MicroArray.HG-U133_Plus_2,TNFA,Monocyte,4h,,,Mac_Mono
+TGFB1@Condition:Monocyte.THP1&Duration:24h@GSE17909.MicroArray.GPL6883,TGFB1,Monocyte.Thp1,24h,,,Mac_Mono
+TGFB1@Condition:Myofibroblasts@GSE61128.MicroArray.HuEx-1_0-st-v2,TGFB1,Myofibroblast,,,,Fibroblast
+CD40L@Condition:Naïve B cells purified from peripheral blood@GSE85543.MicroArray.HT_HG-U133_Plus_PM,CD40L,Naïve B Cells Purified From Peripheral Blood,,,,Bcell
+IL21&Dose:20 ng/ml_Duration:30min@Condition:Naive NK cells@GSE129044.RNASeq.SRP189872_GRCh38,IL21,Naive Nk,30m,20ng/mL,,NK
+IL5@Condition:natural killer cell@E-MTAB-2847.MicroArray.HuGene-2_0-st,IL5,Natural Killer,,,,NK
+TGFB1@Condition:NCI-H358@GSE49644.MicroArray.HG-U133_Plus_2,TGFB1,Nci-H358,,,H358,Lung_tumor
+TGFB1&Dose:4 ng/mL_Duration:14d@Condition:NCI-H358@GSE79235.MicroArray.GPL17077,TGFB1,Nci-H358,14d,4ng/mL,H358,Lung_tumor
+GMCSF&Dose:5 ng/mL_Duration:1h@Condition:Neutrophil@GSE40548.RNASeq.SRP015360_GRCh38,GMCSF,Neutrophil,1h,5ng/mL,,Granulocyte
+GMCSF@Condition:Neutrophil&Duration:1h@GSE70068.RNASeq.SRP059695_GRCh38,GMCSF,Neutrophil,1h,,,Granulocyte
+HMGB1@Condition:Neutrophil@GSE3037.MicroArray.GPL96,HMGB1,Neutrophil,,,,Granulocyte
+TNFA&Dose:10 ng/mL_Duration:1h@Condition:Neutrophil@GSE40548.RNASeq.SRP015360_GRCh38,TNFA,Neutrophil,1h,10ng/mL,,Granulocyte
+TNFA@Condition:Neutrophil&Duration:1h@GSE70068.RNASeq.SRP059695_GRCh38,TNFA,Neutrophil,1h,,,Granulocyte
+TSLP@Condition:neutrophil&Duration:24h@GSE73313.RNASeq.SRP063973_GRCh38,TSLP,Neutrophil,24h,,,Granulocyte
+TSLP@Condition:neutrophil&Duration:4h@GSE73313.RNASeq.SRP063973_GRCh38,TSLP,Neutrophil,4h,,,Granulocyte
+IL12@Condition:NK@GSE63038.MicroArray.HG-U133A,IL12,Nk,,,,NK
+IL15&Dose:45 ng/mL_Duration:6h@Condition:NK@GSE70214.MicroArray.HuGene-2_0-st,IL15,Nk,6h,45ng/mL,,NK
+IL2@Condition:NK@GSE62654.MicroArray.GPL17077,IL2,Nk,,,,NK
+IL2&Dose:high@Condition:NK@GSE12198.MicroArray.HG-U133_Plus_2,IL2,Nk,,high,,NK
+IL2&Dose:low@Condition:NK@GSE12198.MicroArray.HG-U133_Plus_2,IL2,Nk,,low,,NK
+IL15@Condition:NK cells-peripheral blood@GSE22886.MicroArray.HG-U133A,IL15,Nk Cells-Peripheral Blood,,,,NK
+IL2@Condition:NK cells-peripheral blood@GSE22886.MicroArray.HG-U133A,IL2,Nk Cells-Peripheral Blood,,,,NK
+IL15@Condition:NK cells.IL15@GSE77808.RNASeq.SRP069884_GRCh38,IL15,Nk Cells.Il15,,,,NK
+IL4@Condition:Normal B cells@GSE55288.MicroArray.GPL4133,IL4,Normal B,,,,Bcell
+IGF1&Dose:50ng/ml_Duration:24h@Condition:Normal Fibroblasts@GSE18952.MicroArray.GPL9551,IGF1,Normal Fibroblast,24h,50ng/mL,,Fibroblast
+IL13@Condition:Normal lung fibroblast&Duration:24h@GSE47538.MicroArray.GPL13497,IL13,Normal Lung Fibroblast,24h,,Lung_Fibroblast,Fibroblast
+IL4@Condition:Normal lung fibroblast&Duration:24h@GSE47538.MicroArray.GPL13497,IL4,Normal Lung Fibroblast,24h,,Lung_Fibroblast,Fibroblast
+TGFB1@Condition:Normal lung fibroblast&Duration:24h@GSE47538.MicroArray.GPL13497,TGFB1,Normal Lung Fibroblast,24h,,Lung_Fibroblast,Fibroblast
+IL2@Condition:PBMC-derived T lymphocytes@GSE13909.MicroArray.HG-U133_Plus_2,IL2,Pbmc-Derived T Lymphocyte,,,,Tcell
+IL2@Condition:peripheral blood T lymphocytes@GSE13909.MicroArray.HG-U133_Plus_2,IL2,Peripheral Blood T Lymphocyte,,,,Tcell
+IFNB@Condition:Plasmacytoid dendritic cells (pDCs)@GSE37750.MicroArray.HG-U133_Plus_2,IFNB,Plasmacytoid Dendritic Cells,,,,pDC
+TGFB1&Duration:1d@Condition:primary airway epithelial cells@GSE84135.RNASeq.SRP078053_GRCh38,TGFB1,Primary Airway Epithelial,1d,,Lung_Epithelial,Epithelial
+TGFB1&Duration:3d@Condition:primary airway epithelial cells@GSE84135.RNASeq.SRP078053_GRCh38,TGFB1,Primary Airway Epithelial,3d,,Lung_Epithelial,Epithelial
+TGFB1@Condition:primary human alveolar cells type 2&Duration:48h@GSE100854.MicroArray.GPL13497,TGFB1,Primary Alveolar Cells Type2,48h,,Lung_Epithelial,Epithelial
+CD40L&Duration:18h@Condition:Primary B cells@GSE132835.RNASeq.SRP201603_GRCh38,CD40L,Primary B,18h,,,Bcell
+CD40L&Duration:1h@Condition:Primary B cells@GSE132835.RNASeq.SRP201603_GRCh38,CD40L,Primary B,1h,,,Bcell
+IFNB@Condition:human primary B cells&Duration:3h@GSE23307.MicroArray.GPL6104,IFNB,Primary B,3h,,,Bcell
+CD40L@Condition:primary blood Dendritic cells&Duration:12h@GSE73542.MicroArray.HG-U133_Plus_2,CD40L,Primary Blood Dendritic,12h,,,DC
+CD40L@Condition:primary blood Dendritic cells&Duration:6h@GSE73542.MicroArray.HG-U133_Plus_2,CD40L,Primary Blood Dendritic,6h,,,DC
+IL4@Condition:primary bronchial epithelial cells&Duration:12h@GSE78914.MicroArray.HG-U133_Plus_2,IL4,Primary Bronchial Epithelial,12h,,Lung_Epithelial,Epithelial
+IL4@Condition:primary bronchial epithelial cells&Duration:24h@GSE78914.MicroArray.HG-U133_Plus_2,IL4,Primary Bronchial Epithelial,24h,,Lung_Epithelial,Epithelial
+IL4@Condition:primary bronchial epithelial cells&Duration:6h@GSE78914.MicroArray.HG-U133_Plus_2,IL4,Primary Bronchial Epithelial,6h,,Lung_Epithelial,Epithelial
+IL4@Condition:primary bronchial epithelial cells&Duration:72h@GSE78914.MicroArray.HG-U133_Plus_2,IL4,Primary Bronchial Epithelial,72h,,Lung_Epithelial,Epithelial
+CX3CL1@Condition:human primary CD16+ monocytes@E-MTAB-7484.MicroArray.HuGene-2_0-st,CX3CL1,Primary Cd16+ Monocyte,,,,Mac_Mono
+IFNG@Condition:Primary human fibroblasts&Duration:24h@GSE106523.MicroArray.GPL13497,IFNG,Primary Fibroblast,24h,,,Fibroblast
+IFNG@Condition:Primary human fibroblasts&Duration:3h@GSE106523.MicroArray.GPL13497,IFNG,Primary Fibroblast,3h,,,Fibroblast
+IFNG@Condition:Primary human fibroblasts&Duration:6h@GSE106523.MicroArray.GPL13497,IFNG,Primary Fibroblast,6h,,,Fibroblast
+TGFB1@Condition:primary human lung fibroblasts_no treatment&Duration:24h@GSE102674.RNASeq.SRP115472_GRCh38,TGFB1,Primary Lung Fibroblasts_No Treatment,24h,,Lung_Fibroblast,Fibroblast
+IFNG@Condition:Primary human lung microvascular endothelial cells&Duration:24h@GSE106524.MicroArray.GPL13497,IFNG,Primary Lung Microvascular Endothelial,24h,,Lung_Endothelial,Endothelial
+IFNG@Condition:Primary human lung microvascular endothelial cells&Duration:3h@GSE106524.MicroArray.GPL13497,IFNG,Primary Lung Microvascular Endothelial,3h,,Lung_Endothelial,Endothelial
+IFNG@Condition:Primary human lung microvascular endothelial cells&Duration:6h@GSE106524.MicroArray.GPL13497,IFNG,Primary Lung Microvascular Endothelial,6h,,Lung_Endothelial,Endothelial
+IFNG@Condition:human primary macrophages@GSE66809.RNASeq.SRP056098_GRCh38,IFNG,Primary Macrophage,,,,Mac_Mono
+TNFA@Condition:primary macrophages@GSE46599.MicroArray.GPL10558,TNFA,Primary Macrophage,,,,Mac_Mono
+TNFA@Condition:primary macrophages@GSE95588.RNASeq.SRP100947_GRCh38,TNFA,Primary Macrophage,,,,Mac_Mono
+IFNG@Condition:Primary monocytes@GSE86298.MicroArray.HuGene-1_0-st-v1,IFNG,Primary Monocyte,,,,Mac_Mono
+IL4@Condition:Primary monocytes@GSE86298.MicroArray.HuGene-1_0-st-v1,IL4,Primary Monocyte,,,,Mac_Mono
+PDGFD@Condition:primary NK cells@GSE107047.RNASeq.SRP125179_GRCh38,PDGFD,Primary Nk,,,,NK
+TNFA@Condition:primary CD4+ T cells@GSE46599.MicroArray.GPL10558,TNFA,Primary T Cd4,,,,Tcell
+GDF2@Condition:pulmonary artery endothelial cells&Duration:1.5h@GSE119206.MicroArray.HuGene-2_1-st,GDF2,Pulmonary Artery Endothelial,1.5h,,,Endothelial
+TGFB1@Condition:Human pulmonary artery smooth muscle cells@GSE131998.RNASeq.SRP199934_GRCh38,TGFB1,Pulmonary Artery Smooth Muscle,,,,Smooth_muscle
+IL2@Condition:purified naive B cells from blood&Duration:4d-6h@GSE36975.MicroArray.GPL10558,IL2,Purified Naive B Cells From Blood,4d-6h,,,Bcell
+IL2@Condition:purified naive B cells from blood&Duration:6h@GSE36975.MicroArray.GPL10558,IL2,Purified Naive B Cells From Blood,6h,,,Bcell
+TNFA&Duration:12h@Condition:small airway epithelial cell line@GSE61220.RNASeq.SRP046376_GRCh38,TNFA,Small Airway Epithelial,12h,,Lung_Epithelial,Epithelial
+TNFA&Duration:1h@Condition:small airway epithelial cell line@GSE61220.RNASeq.SRP046376_GRCh38,TNFA,Small Airway Epithelial,1h,,Lung_Epithelial,Epithelial
+TGFB1@Condition:smooth muscle cells (HASMC)@GSE134555.RNASeq.SRP215472_GRCh38,TGFB1,Smooth Muscle Cells,,,,Smooth_muscle
+IL2@Condition:spleen-derived T lymphocytes@GSE13909.MicroArray.HG-U133_Plus_2,IL2,Spleen-Derived T Lymphocyte,,,,Tcell
+TGFB1@Condition:Squamous cell lung carcinoma cell line&Duration:24h@GSE95536.RNASeq.SRP100878_GRCh38,TGFB1,Squamous Cell Lung Carcinoma,24h,,Lung_Squamous_Cell_Carcinoma,Lung_tumor
+TGFB1@Condition:Squamous cell lung carcinoma cell line&Duration:48h@GSE95536.RNASeq.SRP100878_GRCh38,TGFB1,Squamous Cell Lung Carcinoma,48h,,Lung_Squamous_Cell_Carcinoma,Lung_tumor
+TGFB1@Condition:Squamous cell lung carcinoma cell line&Duration:8h@GSE95536.RNASeq.SRP100878_GRCh38,TGFB1,Squamous Cell Lung Carcinoma,8h,,Lung_Squamous_Cell_Carcinoma,Lung_tumor
+EGF&Duration:1h@Condition:SV589@GSE50982.MicroArray.GPL10558,EGF,Sv589,1h,,,Fibroblast
+EGF&Duration:3h@Condition:SV589@GSE50982.MicroArray.GPL10558,EGF,Sv589,3h,,,Fibroblast
+CCL19@Condition:T cell@GSE12449.MicroArray.GPL1708,CCL19,T,,,,Tcell
+CXCL12@Condition:T cell@GSE12449.MicroArray.GPL1708,CXCL12,T,,,,Tcell
+IL23&Dose:100ng/ml@Condition:T cells&Duration:22h@GSE10080.MicroArray.GPL6102,IL23,T,22h,100ng/mL,,Tcell
+NO&Dose:600 uM_Duration:24h@Condition:T cell@GSE13887.MicroArray.HG-U133_Plus_2,NO,T,24h,600uM,,Tcell
+TGFB1@Condition:CD4+ T cell_activated via CD3CD28@GSE17946.MicroArray.GPL2507,TGFB1,T Cd4 Cell_Activated Via Cd3Cd28,,,,Tcell
+IL6&Dose:10 ng/ml@Condition:T CD4+CD25-&Duration:24h@GSE78922.RNASeq.SRP071170_GRCh38,IL6,T Cd4Cd25-,24h,10ng/mL,,Tcell
+IL12@Condition:CD4+ Th cell&Duration:12h@GSE32959.MicroArray.HG-U133_Plus_2,IL12,T Cd4h,12h,,,Tcell
+IL12@Condition:CD4+ Th cell&Duration:24h@GSE32959.MicroArray.HG-U133_Plus_2,IL12,T Cd4h,24h,,,Tcell
+IL12@Condition:CD4+ Th cell&Duration:48h@GSE32959.MicroArray.HG-U133_Plus_2,IL12,T Cd4h,48h,,,Tcell
+IL12@Condition:CD4+ Th cell&Duration:72h@GSE32959.MicroArray.HG-U133_Plus_2,IL12,T Cd4h,72h,,,Tcell
+IL4@Condition:CD4+ Th cell&Duration:12h@GSE32959.MicroArray.HG-U133_Plus_2,IL4,T Cd4h,12h,,,Tcell
+IL4@Condition:CD4+ Th cell&Duration:24h@GSE32959.MicroArray.HG-U133_Plus_2,IL4,T Cd4h,24h,,,Tcell
+IL4@Condition:CD4+ Th cell&Duration:48h@GSE32959.MicroArray.HG-U133_Plus_2,IL4,T Cd4h,48h,,,Tcell
+IL4@Condition:CD4+ Th cell&Duration:72h@GSE32959.MicroArray.HG-U133_Plus_2,IL4,T Cd4h,72h,,,Tcell
+TGFB1@Condition:CD4 Thelper&Duration:24h@GSE14330.MicroArray.HG-U133A_2,TGFB1,T Cd4helper,24h,,,Tcell
+TGFB1@Condition:CD4 Thelper&Duration:6h@GSE14330.MicroArray.HG-U133A_2,TGFB1,T Cd4helper,6h,,,Tcell
+IL10@Condition:T CD8@GSE79127.MicroArray.HG-U133A_2,IL10,T Cd8,,,,Tcell
+IL2@Condition:T CD8@GSE64713.RNASeq.SRP051736_GRCh38,IL2,T Cd8,,,,Tcell
+PDL1@Condition:CD8+ T cells&Duration:24h@GSE122149.RNASeq.SRP167845_GRCh38,PDL1,T Cd8,24h,,,Tcell
+PDL1@Condition:CD8+ T cells&Duration:48h@GSE122149.RNASeq.SRP167845_GRCh38,PDL1,T Cd8,48h,,,Tcell
+PDL1@Condition:CD8+ T cells&Duration:6h@GSE122149.RNASeq.SRP167845_GRCh38,PDL1,T Cd8,6h,,,Tcell
+TGFB1&Dose:5 ng/ml@Condition:CD8 T cells&Duration:7d@GSE87508.RNASeq.SRP090680_GRCh38,TGFB1,T Cd8,7d,5ng/mL,,Tcell
+IFNA@Condition:T CD8_with anti CD3/CD8&Duration:48h@GSE17301.MicroArray.HG-U133A_2,IFNA,T Cd8_With Anti Cd3/Cd8,48h,,,Tcell
+IFNB@Condition:T lymphocytes@GSE34627.MicroArray.GPL6884,IFNB,T Lymphocyte,,,,Tcell
+IFNA@Condition:Th0&Duration:5d@GSE54627.MicroArray.HuGene-1_1-st-v1,IFNA,Th0,5d,,,Tcell
+IFNA@Condition:Th0&Duration:5d+4h@GSE54627.MicroArray.HuGene-1_1-st-v1,IFNA,Th0,5d+4h,,,Tcell
+IFNA@Condition:Th1&Duration:5d@GSE54627.MicroArray.HuGene-1_1-st-v1,IFNA,Th1,5d,,,Tcell
+IFNA@Condition:Th1&Duration:5d+4h@GSE54627.MicroArray.HuGene-1_1-st-v1,IFNA,Th1,5d+4h,,,Tcell
+TGFB1&Dose:3 ng/ml@Condition:Th1 cells@GSE2770.MicroArray.HG-U133A,TGFB1,Th1,,3ng/mL,,Tcell
+IFNA@Condition:Th17&Duration:5d@GSE54627.MicroArray.HuGene-1_1-st-v1,IFNA,Th17,5d,,,Tcell
+IFNA@Condition:Th17&Duration:5d+4h@GSE54627.MicroArray.HuGene-1_1-st-v1,IFNA,Th17,5d+4h,,,Tcell
+IFNA@Condition:Th2&Duration:5d@GSE54627.MicroArray.HuGene-1_1-st-v1,IFNA,Th2,5d,,,Tcell
+IFNA@Condition:Th2&Duration:5d+4h@GSE54627.MicroArray.HuGene-1_1-st-v1,IFNA,Th2,5d+4h,,,Tcell
+TGFB1&Dose:3 ng/ml@Condition:Th2 cells@GSE2770.MicroArray.HG-U133A,TGFB1,Th2,,3ng/mL,,Tcell
+IFNB&Dose:100 IU/mL@Condition:THP-1&Duration:20h@GSE74047.MicroArray.GPL16699,IFNB,Thp1,20h,100IU/mL,,Mac_Mono
+IFNB&Dose:25 IU/mL@Condition:THP-1&Duration:20h@GSE74047.MicroArray.GPL16699,IFNB,Thp1,20h,25IU/mL,,Mac_Mono
+IFNB@Condition:THP1@GSE128113.RNASeq.SRP188099_GRCh38,IFNB,Thp1,,,,Mac_Mono
+IFNB&Dose:100 u/m@Condition:THP1@E-MTAB-1326.MicroArray.SAMHD1_and_IFN_human_cells,IFNB,Thp1,,100U/m,,Mac_Mono
+IFNG&Dose:100 u/m@Condition:THP1@E-MTAB-1326.MicroArray.SAMHD1_and_IFN_human_cells,IFNG,Thp1,,100U/m,,Mac_Mono
+IFNG&Duration:2d@Condition:THP1@GSE58096.MicroArray.HG-U133_Plus_2,IFNG,Thp1,2d,,,Mac_Mono
+IFNG&Duration:4d@Condition:THP1@GSE58096.MicroArray.HG-U133_Plus_2,IFNG,Thp1,4d,,,Mac_Mono
+IFNG&Dose:100 nM_Duration:1d@Condition:THP-1@E-MTAB-5917.MicroArray.HG-U133_Plus_2,IFNG,Thp1,1d,100nM,,Mac_Mono
+IFNG&Dose:100ng/ml_Duration:20h@Condition:THP1@GSE132408.RNASeq.SRP200817_GRCh38,IFNG,Thp1,20h,100ng/mL,,Mac_Mono
+IL17A&Dose:100 ng/ml@Condition:THP1@GSE37659.MicroArray.HG-U133_Plus_2,IL17A,Thp1,,100ng/mL,,Mac_Mono
+IL27&Dose:100ng/ml_Duration:18h@Condition:THP1@GSE143228.MicroArray.HG-U133_Plus_2,IL27,Thp1,18h,100ng/mL,,Mac_Mono
+IL4&Dose:100 nM_Duration:2d@Condition:THP-1@E-MTAB-5917.MicroArray.HG-U133_Plus_2,IL4,Thp1,2d,100nM,,Mac_Mono
+TNFA&Dose:5 ng/ml_Duration:24h@Condition:THP-1 cells@GSE28995.MicroArray.HG-U133_Plus_2,TNFA,Thp1,24h,5ng/mL,,Mac_Mono
+TNFA@Condition:THP-1 (monocytic cell line)@GSE46599.MicroArray.GPL10558,TNFA,Thp1,,,,Mac_Mono
+TNFA&Dose:10ng/mL_Duration:2h@Condition:THP1@GSE26868.MicroArray.HG-U133_Plus_2,TNFA,Thp1,2h,10ng/mL,,Mac_Mono
+IL6&Dose:50 ng/ml@Condition:THP-1 macrophage&Duration:2h@GSE126525.MicroArray.GPL26190,IL6,Thp1 Macrophage,2h,50ng/mL,,Mac_Mono
+TNFA&Dose:10 ng/ml@Condition:THP-1 macrophage&Duration:2h@GSE126525.MicroArray.GPL26190,TNFA,Thp1 Macrophage,2h,10ng/mL,,Mac_Mono
+IGF1&Dose:50ng/ml_Duration:24h@Condition:Tumor Fibroblasts@GSE18952.MicroArray.GPL9551,IGF1,Tumor Fibroblast,24h,50ng/mL,,Fibroblast
+IL1B@Condition:vascular endothelial cells@GSE115311.RNASeq.SRP149723_GRCh38,IL1B,Vascular Endothelial,,,,Endothelial
+TNFA@Condition:vascular endothelial cells@GSE115311.RNASeq.SRP149723_GRCh38,TNFA,Vascular Endothelial,,,,Endothelial
+TGFB1&Dose:10 ng/mL_Duration:24h@Condition:MRC5@GSE97829.RNASeq.SRP104002_GRCh38,TGFB1,Mrc5,24h,10ng/mL,Lung_Fibroblast,Fibroblast
+TGFB1@Condition:MRC5&Duration:48h@GSE25200.MicroArray.GPL4133,TGFB1,Mrc5,48h,,Lung_Fibroblast,Fibroblast
+TGFB1&Dose:10 ng/mL_Duration:24h@Condition:MRC5@GSE97833.MicroArray.GPL17077,TGFB1,Mrc5,24h,10ng/mL,Lung_Fibroblast,Fibroblast

@@ -1,0 +1,819 @@
+---
+title: "visium perturb-map data processing"
+output: 
+  html_document:
+  df_output: paged
+  theme: 'simplex'
+  toc: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T, warning = F, message = F)
+```
+
+```{r}
+
+# load libraries
+library(Seurat)
+library(dplyr)
+library(ggplot2)
+library(ggthemes)
+library(patchwork)
+library(ComplexHeatmap)
+library(circlize)
+library(fgsea)
+library(EnrichmentBrowser)
+
+# set random seed for reproducibility
+set.seed(1234)
+
+
+```
+
+```{r}
+# load data and remove off tissue points
+# this folder will be set to where 10x visium data files are stored
+base_folder = '~/Documents/perturb_map/visium/data/'
+
+# set working dir
+setwd(base_folder)
+
+# dirs where visium samples are
+data_folders <- list.dirs(base_folder)
+data_folders <- data_folders[grepl("_v2$", data_folders)]
+
+# read in visium data
+d <- lapply(data_folders, Load10X_Spatial)
+names(d) <- unlist(lapply(strsplit(data_folders, "/"), "[[", 9)) %>% gsub("MIME25_|_0_v2", "", .)
+
+
+# read in off tissue files
+## these will be available in same github directory
+off_tissue_files <- list.files(pattern = "off_tissue.csv", full.names = T, recursive = T)
+off_tissue <- lapply(off_tissue_files, readr::read_csv)
+names(off_tissue) <- names(d)
+
+
+```
+
+
+# Overview
+
+The following code will replicate analyses performed in the Perturb-map manuscript (Dhainaut, Rose, et al 2021). 
+
+File names will need to be changed based on local paths and download names. 
+
+
+# kmeans clustering of all tissue spots
+
+Running kmeans clustering of all Visium spots on each tissue section to delineate tumor vs normal spots. 
+
+Procedure:
+
+* remove off-tissue spots
+* library size normalization and log1p transform
+  + divide feature counts by counts per spot, multiply by 10,000, log1p transform
+* select variable genes
+  + 'vst' method in Seurat
+    + standardize features by observed mean and expected variance based on fitted loess curve, then calculate variance and take most variable genes
+  + 8,000 features (HVGs)
+* Scale feature data (subtract mean and divide by std deviation)
+* calculate PCs with 8k HVGs
+* run kmeans clustering with k = 2, 100 max iterations, nstart = 3, using 40PCs
+
+
+```{r}
+# define kmean clustering function for seurat object
+#### RunKmeans ####
+# running kmeans on a seurat object
+# takes in a seurat object and does it on the PCA from that
+
+RunKmeans <- function(so, k = 2, num_pc = 50, iters = 10, n_starts = 1,
+                      cluster_name = 'kmeans'){
+  x = so@reductions$pca@cell.embeddings
+  km <- kmeans(x[,1:num_pc], centers = k, iter.max = iters, nstart = n_starts)
+  so@meta.data[,cluster_name] <- km$cluster
+  Idents(so) <- cluster_name
+  return(so)
+}
+
+
+
+```
+
+
+```{r}
+
+## log norm
+d.l.ln <- lapply(names(d), function(so_name){
+  so <- d[[so_name]]
+  #filter out off tissue spots
+  so <- so[,!(colnames(so) %in% off_tissue[[so_name]]$Barcode)]
+  so <- NormalizeData(so)
+  so <- FindVariableFeatures(so, selection.method = 'vst', 
+                             nfeatures = 8000)
+  so <- ScaleData(so)
+  so <- RunPCA(so, features = rownames(so))
+})
+names(d.l.ln) <- names(d)
+
+# run kmeans of 2 for each section
+d.l.ln <- lapply(d.l.ln, RunKmeans, k = 2, num_pc = 40, iters = 100, n_starts = 3)
+
+# change the cluster labels to be standardized across the sections
+## labels may have to be adjusted depending on the clustering results
+## clustering may not be exactly the same each time because of kmeans
+d.l.ln[[1]]$kmeans <- d.l.ln[[1]]$kmeans %>%
+  gsub("1", "normal", .) %>%
+  gsub("2", "tumor", .)
+d.l.ln[[2]]$kmeans <- d.l.ln[[2]]$kmeans %>%
+  gsub("2", "normal", .) %>%
+  gsub("1", "tumor", .)
+d.l.ln[[3]]$kmeans <- d.l.ln[[3]]$kmeans %>%
+  gsub("2", "normal", .) %>%
+  gsub("1", "tumor", .)
+d.l.ln[[4]]$kmeans <- d.l.ln[[4]]$kmeans %>%
+  gsub("2", "normal", .) %>%
+  gsub("1", "tumor", .)
+
+# set identities for further analysis and plotting
+Idents(d.l.ln[[1]]) <- 'kmeans'
+Idents(d.l.ln[[2]]) <- 'kmeans'
+Idents(d.l.ln[[3]]) <- 'kmeans'
+Idents(d.l.ln[[4]]) <- 'kmeans'
+
+
+# make sure tumor is always number 1
+d.l.ln <- lapply(d.l.ln, function(slide){
+  slide$kmeans <- forcats::fct_relevel(factor(slide$kmeans), 
+                                       as.character('tumor', 'normal'))
+  return(slide)
+})
+
+```
+
+## plot tumor vs normal clusters
+
+Plot the resulting tumor and normal clusters. Labels may have to be adjusted depending on the output of clustering. 
+
+```{r}
+(SpatialDimPlot(d.l.ln[[1]]) + scale_fill_tableau() | 
+    SpatialDimPlot(d.l.ln[[2]]) + scale_fill_tableau() | 
+    SpatialDimPlot(d.l.ln[[3]]) + scale_fill_tableau() |
+    SpatialDimPlot(d.l.ln[[4]]) + scale_fill_tableau()) /
+  (SpatialFeaturePlot(d.l.ln[[1]], 'WPRE', slot = 'counts', max.cutoff = 10) |
+  SpatialFeaturePlot(d.l.ln[[2]], 'WPRE', slot = 'counts', max.cutoff = 10) |
+  SpatialFeaturePlot(d.l.ln[[3]], 'WPRE', slot = 'counts', max.cutoff = 10) |
+  SpatialFeaturePlot(d.l.ln[[4]], 'WPRE', slot = 'counts', max.cutoff = 10))
+
+
+```
+
+
+## define tumor vs normal
+
+Look at expression of WPRE in tumor and normal spot clusters. 
+
+Cutoff for tumors spots is set at the mode of the first quantile (4 WPRE/Pro-Code UMIs). 
+
+```{r}
+# summary of counts and normalized read depths at tumor or normal spots
+lapply(d.l.ln, function(x){
+  lapply(FetchData(x, 'WPRE', slot = 'counts') %>% .$WPRE %>% base::split(factor(x$kmeans)), 
+         summary)
+}) 
+
+# get cutoffs of tumor vs normal for each slide based on mode of the first quantile
+
+tumor_wpre_cutoff = 4
+
+```
+
+# tumor spot clustering
+
+
+Procedure:
+
+* Tumor spots defined by WPRE expression >= 4 UMIs. 
+* library size and log1p normalization performed similar to above
+* 5,000 HVG selected by vst method
+* features scaled and centered
+* PCs calculated using HVGs
+* run leiden clustering with 20PCs
+
+```{r}
+# normalize and process tumor spots
+d.t <- lapply(names(d), function(so_name){
+  so <- d[[so_name]]
+  so <- subset(so, WPRE >= tumor_wpre_cutoff)
+  
+  #filter out off tissue spots
+  so <- so[,!(colnames(so) %in% off_tissue[[so_name]]$Barcode)]
+  so <- NormalizeData(so)
+  so <- FindVariableFeatures(so, selection.method = 'vst', 
+                             nfeatures = 5000)
+  so <- ScaleData(so)
+  so <- RunPCA(so)
+
+})
+names(d.t) <- names(d)
+
+
+# run dimensionality reduction and leiden clustering
+d.t <- lapply(d.t, function(x){
+  x <- RunUMAP(x, reduction = 'pca', dims = 1:20)
+  x <- FindNeighbors(x, reduction = "pca", dims = 1:20)
+  x <- FindClusters(x, algorithm = 4)
+  })
+
+
+```
+
+## leiden cluster plot
+
+Original leiden cluster plots and UMAP.  
+
+```{r}
+
+(SpatialDimPlot(d.t[[1]]) + scale_fill_tableau() | 
+    SpatialDimPlot(d.t[[2]]) + scale_fill_tableau() | 
+    SpatialDimPlot(d.t[[3]]) + scale_fill_tableau() |
+    SpatialDimPlot(d.t[[4]]) + scale_fill_tableau()) / 
+  (DimPlot(d.t[[1]]) + scale_color_tableau() | 
+     DimPlot(d.t[[2]]) + scale_color_tableau() | 
+     DimPlot(d.t[[3]]) + scale_color_tableau() |
+     DimPlot(d.t[[4]]) + scale_color_tableau())
+
+
+
+```
+
+## annotated leiden cluster plot
+
+Leiden cluster plots with gene and spot type annotations. 
+
+```{r}
+
+
+
+# set the cluster names in each slide to what they should be based on what they 
+# define
+# max41
+d.t[[1]] <- RenameIdents(object = d.t[[1]], 
+                         `1` = "periphery", 
+                         `2` = "KP_1-1", 
+                         `3` = 'Tgfbr2_1', 
+                         `4` = 'KP_1-2',
+                         `5` = 'KP_1-3', 
+                         `6` = 'Jak2_1')
+d.t[[1]][['phenotypes']] <- Idents(d.t[[1]])
+
+# max 43
+d.t[[2]] <- RenameIdents(object = d.t[[2]], 
+                         `1` = "periphery", 
+                         `2` = "KP_2-1", 
+                         `3` = 'KP_2-2',  
+                         `4` = 'Tgfbr2_2',
+                         `5` = 'Ifngr2_2', 
+                         `6` = 'KP_2-3')
+d.t[[2]][['phenotypes']] <- Idents(d.t[[2]])
+
+# max 51
+d.t[[3]] <- RenameIdents(object = d.t[[3]], 
+                         `1` = "periphery", 
+                         `2` = "KP_3-1", 
+                         `3` = 'KP_3-2',  
+                         `4` = 'Ifngr2_3',
+                         `5` = 'KP_3-3')
+d.t[[3]][['phenotypes']] <- Idents(d.t[[3]])
+
+# max 72
+d.t[[4]] <- RenameIdents(object = d.t[[4]], 
+                         `1` = "KP_4-1", 
+                         `2` = "periphery", 
+                         `3` = 'KP_4-2',  
+                         `4` = 'Tgfbr2_4-1',
+                         `5` = 'KP_4-3', 
+                         `6` = 'Tgfbr2_4-2', 
+                         `7` = 'KP_4-4')
+d.t[[4]][['phenotypes']] <- Idents(d.t[[4]])
+
+
+## slide 1 figure
+# setting color scale
+m41_col_pal <- c("#F1CE63", "#E15759", "#4E79A7", "#FF9D9A", 
+                 "#59A14F", "#B07AA1")
+names(m41_col_pal) <- c('periphery', 'KP_1-1', 'KP_1-2', 'KP_1-3', 
+                        'Jak2_1', 'Tgfbr2_1')
+d.t[[1]]$phenotypes <- forcats::fct_relevel(factor(d.t[[1]]$phenotypes), 
+                                            names(m41_col_pal))
+Idents(d.t[[1]]) <- 'phenotypes'
+
+#  resize image so the plots aren't so big with the image
+# background
+.resize_slice_images <- function(obj, w = 300) {
+  if (!requireNamespace("EBImage", quietly = TRUE)) return(obj)
+  .resize_image <- function(k) {
+    new_k <- paste0(k, "_scaled")
+    obj@images[[new_k]] <- obj@images[[k]]
+    obj@images[[new_k]]@image <- EBImage::resize( obj@images[[k]]@image, w = w)
+    r <- w / nrow(obj@images[[k]]@image)
+    obj@images[[k]] <- NULL
+    obj@images[[new_k]]@scale.factors$lowres <- obj@images[[new_k]]@scale.factors$lowres * r
+    obj
+  }
+  all_images <- Images(obj)
+  for(i in all_images) {
+    obj <- .resize_image(i)
+  }    
+  obj
+}
+d.t[[1]] <- .resize_slice_images(d.t[[1]], w = 200)
+
+# plot slide1 with the phenotypes
+## adjusting this for plotting with cropping as well
+SpatialDimPlot(d.t[[1]], crop = F, pt.size.factor = 1.2#, 
+               #images = NULL
+              # image.alpha = 0
+               ) + scale_fill_manual(values = m41_col_pal, 
+                                             name = 'Cluster') +
+  theme(legend.position = "bottom") +
+  guides(fill = guide_legend(override.aes = list(size=4))) +
+  theme(legend.key=element_blank())
+
+
+## slide 2 figure
+m43_col_pal <- c("#F1CE63", "#4E79A7", "#E15759", "#499894", 
+                 "#8CD17D", "#B07AA1")
+names(m43_col_pal) <- c('periphery', 'KP_2-1', 'KP_2-2', 'KP_2-3', 
+                        'Ifngr2_2', 'Tgfbr2_2')
+d.t[[2]]$phenotypes <- forcats::fct_relevel(factor(d.t[[2]]$phenotypes), 
+                                            names(m43_col_pal))
+Idents(d.t[[2]]) <- 'phenotypes'
+
+# plot slide 2 with the phenotypes
+
+SpatialDimPlot(d.t[[2]], crop = F, pt.size.factor = 1.2) + scale_fill_manual(values = m43_col_pal, 
+                                             name = 'Cluster') +
+  theme(legend.position = "bottom") +
+  guides(fill = guide_legend(override.aes = list(size=4))) +
+  theme(legend.key=element_blank())
+
+
+
+# plot slide 3
+m51_col_pal <- c("#F1CE63", "#79706E", "#499894", "#86BCB6", 
+                 "#8CD17D")
+names(m51_col_pal) <- c('periphery', 'KP_3-1', 'KP_3-2', 'KP_3-3', 
+                        'Ifngr2_3')
+d.t[[3]]$phenotypes <- forcats::fct_relevel(factor(d.t[[3]]$phenotypes), 
+                                            names(m51_col_pal))
+Idents(d.t[[3]]) <- 'phenotypes'
+
+# plot slide 2 with the phenotypes
+
+SpatialDimPlot(d.t[[3]], pt.size.factor = 1.2, crop = F) + scale_fill_manual(values = m51_col_pal, 
+                                             name = 'Cluster') +
+  theme(legend.position = "bottom") +
+  guides(fill = guide_legend(override.aes = list(size=4))) +
+  theme(legend.key=element_blank())
+
+# plot slide 4
+m72_col_pal <- c("#F1CE63", "#4E79A7", "#FFBE7D", "#B6992D", 
+                 "#F28E2B",  '#B07AA1', '#D4A6C8')
+names(m72_col_pal) <- c('periphery', 'KP_4-1', 'KP_4-2', 'KP_4-3', 
+                        'KP_4-4', 'Tgfbr2_4-1', 'Tgfbr2_4-2')
+d.t[[4]]$phenotypes <- forcats::fct_relevel(factor(d.t[[4]]$phenotypes), 
+                                            names(m72_col_pal))
+Idents(d.t[[4]]) <- 'phenotypes'
+
+# plot slide 2 with the phenotypes
+
+SpatialDimPlot(d.t[[4]], pt.size.factor = 1.2, crop = F) + scale_fill_manual(values = m72_col_pal, 
+                                                                 name = 'Cluster') +
+  theme(legend.position = "bottom") +
+  guides(fill = guide_legend(override.aes = list(size=4))) +
+  theme(legend.key=element_blank())
+
+
+
+```
+
+
+# Conserved tumor vs normal signature
+
+In all tissue sections, look for genes that are consistently differentially expressed in tumor vs normal spots in the same direction. 
+
+* wilcoxon rank-sum test between tumor and normal clusters bonferroni adjusted P < 0.01
+* DE in at least 3 tissue sections and log FC consistent in all slides
+
+
+```{r}
+
+# load in kmeans clustering results if needed
+d.l.ln <- readRDS("~/Documents/perturb_map/visium/results/SeurObj_LN_k2.rds")
+
+# do wilcoxon test
+# find expression markers for each cluster in each slide using a wilcoxon test
+d.wc.l <- lapply(d.l.ln, function(slide){
+  #d.lr <- lapply(unique(slide$kmeans), function(x){
+  FindMarkers(slide, ident.1 = 'tumor',
+              ident.2 = 'normal',
+              test.use = 'wilcox', 
+              min.pct = .1)  
+  #})
+  #names(d.lr) <- unique(slide$kmeans)
+  #return(d.lr)
+})
+names(d.wc.l) <- names(d.l.ln)
+
+# how many DEG in these signatures across tissues
+lapply(d.wc.l, function(x){
+  x %>% dplyr::filter(p_val_adj < .01) %>% nrow()
+})
+
+```
+
+
+```{r}
+
+# join the DEG tables together for all tissues
+d.wc.melt <- d.wc.l %>%
+  purrr::map(as.data.frame) %>%
+  purrr::map(tibble::rownames_to_column,  var = 'gene') %>%
+  purrr::reduce(full_join, by = 'gene')
+
+
+# to get the conserved signature I will take genes that are significant < .01 in at least 3
+# out of 4 slides and all of which have the log2fc in the same direction
+conds.index <- do.call(rbind, apply(d.wc.melt, 1, function(r){
+  sum_sig = sum(as.numeric(r[c('p_val_adj.x', 'p_val_adj.y', 'p_val_adj.x.x', 'p_val_adj.y.y')]) < .01, 
+                na.rm = T)
+  
+  fc = as.numeric(r[c('avg_log2FC.x', 'avg_log2FC.y', 'avg_log2FC.x.x', 'avg_log2FC.y.y')])
+  # filter out NAs
+  fc = fc[!(is.na(fc))]
+  all_fc_consistent = length(unique(sign(fc)))
+  rdat <- data.frame(consistent_fc = all_fc_consistent, 
+                     sum_significant = sum_sig, 
+                     gene = r['gene'])
+  return(rdat)
+}))
+
+keep_cons <- (conds.index$consistent_fc == 1) & (conds.index$sum_significant > 2)
+# get the conserved signature DF
+d.wc.cons <- d.wc.melt[keep_cons,]
+
+# calculate average log2FC across sections
+d.wc.cons$avg_log2FC = apply(d.wc.cons, 1, function(x){
+  mean(as.numeric(x[c('avg_log2FC.x',
+                      'avg_log2FC.y',
+                      'avg_log2FC.x.x',
+                      'avg_log2FC.y.y')]), na.rm = T)
+})
+
+# conserved signature is in w.wc.cons
+
+```
+
+# Leiden cluster differential expression
+
+Define differentially expressed genes within different Leiden tumor spot clusters. 
+
+Procedure:
+
+* SCTransform normalize all tumor spots across all 4 sections
+* Run a wilcoxon rank-sum test between tumor periphery, Jak2 KO, Ifngr2 KO, and Tgfbr2 KO spots against 'canonical' KP tumor spots (annotated excl_tumors)
+* Bonferroni adjusted p < 0.01 threshold for significant differentially expressed genes (DEGs)
+
+
+```{r}
+
+# merging the data frame I loaded above and adding some things
+d.t.m <- merge(d.t[[1]], list(d.t[[2]], d.t[[3]], d.t[[4]]))
+
+## SCTransform normalization
+d.t.m <- SCTransform(d.t.m, assay = "Spatial")
+d.t.m <- RunPCA(d.t.m, assay = "SCT")
+
+# now I need to find marker genes that separate the different tumors from each other
+# I will try integrating them first but could do per slide as well
+
+# trim the phenotypes to names that also include just the gene name
+d.t.m$phenotypes.mod <- gsub("2_[1-4](\\-[1-4])?$", "2", d.t.m$phenotypes)
+Idents(d.t.m) <- 'phenotypes.mod'
+
+## I'm goin to have some classifications of tumors that are excluded but not
+## the special ones and also the infiltrated tumors
+excl_tumors <- c( 'KP_3-1', 
+                'KP_3-3',
+                  'KP_3-2',
+                  'KP_4-3', 'KP_4-2',
+                 'KP_4-4',
+                'KP_2-3',
+                  'KP_1-2', 'KP_2-1',
+                  'KP_4-1')
+infl_tumors <- c( 'KP_2-2',
+                 'KP_1-1',
+                  'KP_1-3')
+tgfb_tumors <- c( 'Tgfbr2_4-1',
+                  'Tgfbr2_2',
+                  'Tgfbr2_1',
+                  'Tgfbr2_4-2')
+ifng_tumors <- c( 'Ifngr2_3', 'Ifngr2_2')
+
+## DE signatures
+de.tg <- FindMarkers(subset(d.t.m, phenotypes.mod %in% c(excl_tumors, 'Tgfbr2')),
+                     ident.1 = 'Tgfbr2', test.use = "wilcox")
+de.ifn <- FindMarkers(subset(d.t.m, phenotypes.mod  %in% c(excl_tumors, 'Ifngr2')),
+                      ident.1 = 'Ifngr2', test.use = "wilcox")
+de.jak <- FindMarkers(subset(d.t.m, phenotypes.mod %in% c(excl_tumors, 'Jak2')),
+                      ident.1 = "Jak2", test.use = "wilcox")
+de.per <- FindMarkers(subset(d.t.m, phenotypes.mod %in% c(excl_tumors, #'Tgfbr2',
+                                                         # 'Ifngr2', 'Jak2',
+                                                         'periphery')), 
+                      ident.1 = 'periphery',
+                      test.use = "wilcox")
+
+# how many genes differentially expressed in each comparison?
+lapply(ls(pattern = "de\\."), function(x){
+  print(x)
+  get(x) %>% dplyr::filter(p_val_adj < .01) %>% .$avg_log2FC %>% sign() %>% table()
+})
+
+```
+
+## volcano plots of DEGs
+
+```{r}
+
+## volcano plots for knockout populations
+ggVolcano <- function(res, highlight, label = F){
+  
+  res$gene <- rownames(res)
+  res$significant <- res$gene %in% highlight
+  
+  gp <- ggplot(res, aes(x = avg_log2FC, y = -log10(p_val_adj))) +
+    geom_point(size = 2.5, aes(color = significant)) +
+    theme_bw() +
+    scale_color_manual(values = c('black', 'firebrick1'), labels = c('no', 'yes')) +
+    labs(x = "log2 Fold Change", y = "-log10(adjusted p)")
+  
+  if(label == T){
+    gp <- gp + ggrepel::geom_text_repel(data = filter(res, significant == TRUE),
+                                        aes(label = gene))
+  }
+  gp
+  
+}
+
+ggVolcano(de.ifn, highlight = dplyr::filter(de.ifn, p_val_adj < .01) %>% rownames() #%>%
+          # head(n = 100)
+          , 
+          label = T) +
+  ggtitle("Ifngr2 KO vs other excluded tumor")
+ggVolcano(de.tg, highlight = dplyr::filter(de.tg, p_val_adj < .01) %>% rownames() #%>%
+          #head(n = 100)
+          , 
+          label = T) +
+  ggtitle("Tgfbr2 KO vs other excluded tumor")
+ggVolcano(de.jak, highlight = dplyr::filter(de.jak, p_val_adj < .01) %>% rownames() #%>%
+          #head(n = 100)
+          , 
+          label = T) +
+  ggtitle("Jak2 KO vs other excluded tumor") 
+ggVolcano(de.per, highlight = dplyr::filter(de.per, p_val_adj < .01) %>% rownames() #%>%
+          # head(n = 100)
+          , 
+          label = T) +
+  ggtitle("Periphery vs excluded tumors")
+
+
+
+```
+
+## DEG heatmap and gene clustering
+
+Hierarchical clustering of genes within Ifngr2 and Tgfbr2 KO DEG signatures. 
+
+```{r, fig.height=8, fig.width=6}
+
+## heatmap for tumor signatures
+# change the identities back to the indifivual tumors
+Idents(d.t.m) <- 'phenotypes'
+
+# average gene expression of tumor spot clusters
+mat.sct <- AverageExpression(d.t.m, vars = d.t.m@assays$SCT@var.features, slot = 'scale.data') %>% .$SCT %>%
+  as.matrix()
+
+# hierarchical clustering of tumor spot clusters
+t.hc <- hclust(as.dist(1 - cor(mat.sct)), method = "average")
+
+palette_heatmap <- ggthemes_data$tableau$`color-palettes`$`ordered-diverging`$`Red-Blue Diverging`$value %>% rev()
+
+col_fun <- colorRamp2(seq(from = -4, to = 4,
+                          length.out = length(palette_heatmap)),
+                      palette_heatmap)
+
+# scale expression data for heatmap
+hmap_data <- AverageExpression(d.t.m, assays = "SCT", slot = 'data', features = rownames(d.t.m))
+hmap.scale <- apply(hmap_data$SCT, 1, scale) %>% t()
+colnames(hmap.scale) <- colnames(hmap_data$SCT)
+
+
+# take all genes in Ifngr2 and Tgfb signatures
+gene_sigs <- c(de.tg %>% tibble::rownames_to_column(var = 'gene') %>%
+                 dplyr::filter(p_val_adj < .01 & abs(avg_log2FC) > .5) %>% .$gene, 
+               de.ifn %>% tibble::rownames_to_column(var = 'gene') %>%
+                 dplyr::filter(p_val_adj < .01 & abs(avg_log2FC) > .5) %>% .$gene) %>% unique()
+gene_sigs <- gene_sigs[!(gene_sigs %in% 'WPRE')]
+
+## get row clustering
+g.hc <- fastcluster::hclust(as.dist(1 - cor(t(hmap.scale[gene_sigs,-c(6,12)]))), method = "average")
+
+# split this into a certain amount of clusters
+g.hc.clusters <- cutree(g.hc,
+                        k = 7)
+
+# row annotations
+gene_mark_names <- c('B2m', 'Jak2', 'Ifng', 'Tap1', 'Tap2', 'Tgfb1', 'Tgfb3',
+                     'Tnc', 'Fn1', 'Pmepa1', 'Itgaz', 'H2-Ab1', 'Cd74', 'Ctss', 'Ctsk', 
+                     'Cxcl15', 'Epas1', 'Ces1d', 'Lamp3', 'Lyz2', 'Nkx2-1', 'Ccl6', 
+                     'Samhd1', 'Itga1', 'Icam1', 'Pecam1', 'Sftpc', 'Sftpb',
+                     'Ly6c1', 'Irf1', 'Batf2', 'H2-D1', 'H2-K1', 'Stat1', 'Cxcl9',
+                     'Mmp12', 'Psmb9', 'Psmb8', 'Nlrc5', 'Irf8', 'Socs1', 'Ido1', 'Ciita',
+                     'Spp1', 'Wnt5a', 'Avpi1', 'Sox4', 'Spp1', 'mt-Co1', 'mt-Co3',
+                     'Cldn4', 'Ctla2a', 'Rhoc', 
+                     'Tgfb3', 'Creb3l2', 'Col6a2', 'Col6a1', 'Timp3', 'Thbs2', 'Cald1',
+                     'Bmp1', 'Mmp2', 'Adam12', 'Timp1', 'Fn1', 'Tnc', 'Ncam1', 'Inhba', 'Vcan',
+                     'Creb3l1', 'Tgfb1', 'Tgfbi', 'Thbs1', 'Fgf2', 'Ecm1', 'Arg1', 'Fzd1'
+                     )
+gene_mark_idx <- match(gene_mark_names,  gene_sigs)
+ra <- rowAnnotation(genes = anno_mark(at = gene_mark_idx, 
+                                      labels = gene_mark_names))
+
+# column annotation with matching colors for the different clustered tumors
+# get the tumor IDs and names in a df
+col.df <- data.frame(cols = c(m41_col_pal, m43_col_pal,
+                              m51_col_pal, m72_col_pal), 
+                     names = c(names(m41_col_pal), names(m43_col_pal),
+                               names(m51_col_pal), names(m72_col_pal))) %>%
+  distinct()
+col_vec <- col.df$cols
+names(col_vec) <- col.df$names
+
+# get this in the correct order
+col_vec <- col_vec[c(8,2,4,1,12,10,15,21,6,11,20,3,7,16,19,17,18,5,9,13,14 )]
+
+
+ca <- columnAnnotation(`Tumor ID` = names(col_vec), 
+                       col = list(`Tumor ID` = col_vec))
+
+Heatmap(hmap.scale[gene_sigs,], 
+        name = "Expression\nZ-score",
+        col = col_fun, cluster_columns = t.hc, 
+        show_row_names = F, 
+        row_split = g.hc.clusters,
+        clustering_distance_rows = 'pearson', 
+        clustering_method_rows = 'average',
+        right_annotation = ra, 
+        )
+
+
+```
+
+
+
+## GSEA of tumor cluster DEGs
+
+
+Here I am using signatures derived from CytoSig database (https://cytosig.ccr.cancer.gov/)
+
+I am performing GSEA based enrichment using a curated set of cytosig gene sets with manual annotation of cell groups for different treatment conditions. 
+
+In cases where there were at least 3 separate conditions for a particular cell type treated with a particular cytokine, I generated gene sets in which:
+
+* log2 fold change is greater than 0.5 in at least half of the conditions contained in the dataset
+* currently, this only looks at upregulated genes induced by these cytokines
+
+Genes and cytokines in which there are a geneset for a printed below:
+
+```{r}
+
+
+# load the gene sets and get genes in the correct format
+cond_sigs.bn = readRDS("~/Dropbox/reference_genomes/Homo_sapiens/gene_sets/cytosig/cytosig_TreatCond_sigGenes_lungCurated_20211115.rds")
+
+
+# get names to identify the different gene sets
+cond_sigs.l.names = lapply(names(cond_sigs.bn), function(ct){
+  lapply(names(cond_sigs.bn[[ct]]), function(cyto){
+    print(paste(ct, cyto, sep = ":"))
+  })
+}) %>% unlist()
+
+
+# extract mouse genes from each of the gene sets and create a list for use in fgsea
+cond_sigs.l = lapply(names(cond_sigs.bn), function(ct){
+  lapply(names(cond_sigs.bn[[ct]]), function(cyto){
+    #print(paste(ct, cyto, sep = ":"))
+    cond_sigs.bn[[ct]][[cyto]] %>%
+           dplyr::filter(!(is.na(mouse_gene))) %>%
+           .$mouse_gene %>% as.character()
+  })
+}) %>% unlist(recursive = F)
+names(cond_sigs.l) <- cond_sigs.l.names
+
+
+```
+
+Run fgsea on each list of DEGs from tumor clusters. 
+
+
+```{r}
+
+# ifngr2
+test_stats.ifn <- de.ifn$avg_log2FC[de.ifn$p_val_adj < .01]
+names(test_stats.ifn) <- rownames(de.ifn[de.ifn$p_val_adj < .01,])
+
+fg.ifn <- fgseaMultilevel(cond_sigs.l, test_stats.ifn)
+
+# tgfbr2 ko
+test_stats.tg <- de.tg$avg_log2FC[de.tg$p_val_adj < .01]
+names(test_stats.tg) <- rownames(de.tg[de.tg$p_val_adj < .01,])
+
+fg.tg <- fgseaMultilevel(cond_sigs.l, test_stats.tg)
+
+# jak2
+test_stats.jak <- de.jak$avg_log2FC[de.jak$p_val_adj < .01]
+names(test_stats.jak) <- rownames(de.jak[de.jak$p_val_adj < .01,])
+
+fg.jak <- fgseaMultilevel(cond_sigs.l, test_stats.jak)
+
+# periphery
+test_stats.per <- de.per$avg_log2FC[de.per$p_val_adj < .01]
+names(test_stats.per) <- rownames(de.per[de.per$p_val_adj < .01,])
+
+fg.per <- fgseaMultilevel(cond_sigs.l, test_stats.per)
+
+```
+
+Make a heatmap and plot significant enrichments. 
+
+```{r, error=FALSE}
+
+# make a heatmap of the signed -log10 p value for cytokine signatures of the different gene sets
+gsea_hmap = matrix(nrow = length(unique(c(fg.ifn$pathway, fg.per$pathway, fg.tg$pathway))), ncol = 3, dimnames = list(unique(c(fg.ifn$pathway, fg.per$pathway, fg.tg$pathway, fg.jak$pathway)), 
+                                                                  c('Periphery', 'Ifngr2 KO',  'Tgfbr2 KO')))
+apply(fg.per, 1, function(x){
+  gsea_hmap[as.character(x$pathway),'Periphery'] <<- -log10(as.numeric(x['padj']) )* sign(as.numeric(x['ES']))
+})
+apply(fg.ifn, 1, function(x){
+  gsea_hmap[as.character(x$pathway),'Ifngr2 KO'] <<- -log10(as.numeric(x['padj'])) * sign(as.numeric(x['ES']))
+})
+apply(fg.tg, 1, function(x){
+  gsea_hmap[as.character(x$pathway),'Tgfbr2 KO'] <<- -log10(as.numeric(x['padj'])) * sign(as.numeric(x['ES']))
+})
+
+# melt the heatmap and add significance and row annotations for plotting
+gsea_hmap.m = reshape2::melt(gsea_hmap) %>%
+   mutate(p_symbol = symnum(abs(value), cutpoints = c(Inf, -log10(0.001), -log10(0.01), -log10(0.05),-log10(0.1), -log10(1)), 
+                                        symbols = rev(c("*\n*\n*", "*\n*", "*", ".", " ")), 
+                                        corr = F, na = F)
+   )
+
+# complexheatmap row order
+gsea_hmap.p = Heatmap(gsea_hmap)
+gsea_hmap.ro = row_order(gsea_hmap.p)
+
+# relevel the rows for the heatmap
+gsea_hmap.m = mutate(gsea_hmap.m, Var1 = gsub("_", " ", Var1)) %>%
+  mutate(Var1 = forcats::fct_relevel(factor(Var1), 
+                                     rownames(gsea_hmap)[gsea_hmap.ro] %>% gsub("_", " ", .)))
+
+
+```
+
+
+```{r, fig.height = 4, fig.width=8}
+ggplot(gsea_hmap.m %>% 
+         dplyr::filter(Var2 != 'Periphery') %>%
+         group_by(Var1) %>%
+         dplyr::filter(any(p_symbol != " ") & !(any(is.na(value)))) %>% 
+         ungroup() %>%
+         dplyr::filter(!(is.na(value))), aes(x = Var2, y = Var1)) +
+  geom_tile(aes(fill = value)) +
+  geom_text(aes(label = p_symbol)) +
+  theme_minimal() +
+  theme(panel.grid = element_blank(), 
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = .5), 
+        axis.text = element_text(size = 14), 
+        axis.title = element_text(size = 18)) +
+  scale_fill_distiller(palette = "RdBu", 
+                       name = "signed\n-log10 \np value", 
+                        limits = c(-10, 10)) +
+  coord_flip() +
+  labs(y = 'Cell type : Treatment', 
+       x = 'DE geneset')
+
+```
