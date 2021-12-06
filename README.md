@@ -12,6 +12,6 @@ Scripts and files relevant to analyses in the Perturb-map manuscript (Dhainaut, 
 ## Files
 
 * diff.lungImmune.modGroup.csv - modified cytosig database info filtered for relevant lung and immune cell types and assigned with broad and narrow cell groups
-* cytosig_TreatCond_sigGenes_lungCurated_20211115.rds - R object file containing lists correspdonging to different cytokine + cell type gene sets
+* cytosig_TreatCond_sigGenes_lungCurated_20211115.rds - R object file containing lists corresponding to different cytokine + cell type gene sets
 
 
